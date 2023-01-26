@@ -1,66 +1,53 @@
-import React, { useState } from "react";
 import "./App.css";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  useMutation,
 } from "@apollo/client";
-import { createUser } from "./graphql/createUser";
-
-function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [doSignupMutation, { data, loading, error }] = useMutation(createUser);
-
-  async function doSignup() {
-    try {
-      await doSignupMutation({
-        variables: {
-          data: {
-            email,
-            password,
-          },
-        },
-      });
-      setEmail("");
-      setPassword("");
-    } catch {}
-  }
-
-  return (
-    <>
-      {error && (
-        <pre style={{ color: "red" }}>{JSON.stringify(error, null, 4)}</pre>
-      )}
-      <p>Email:</p>
-      <input
-        disabled={loading}
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <p>Password:</p>
-      <input
-        disabled={loading}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button disabled={loading} onClick={doSignup}>
-        Signup
-      </button>
-    </>
-  );
-}
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Signup from "./components/SignUp";
+import Products from "./components/Products";
 
 function Main() {
   return (
-    <div>
-      <Signup />
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            {/* <li>
+              <Link to="/">Home</Link>
+            </li> */}
+            <li>
+              <Link to="products">Produits</Link>
+            </li>
+            {/* <li>
+              <Link to="reservations">Réservations</Link>
+            </li> */}
+            {/* <li>
+              <Link to="cart">Panier</Link>
+            </li> */}
+            <li>
+              <Link to="cart">Connexion</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Routes> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="products" element={<Products />} />
+          {/* <Route path="reservations" element={<Reservations />} /> */}
+          {/* <Route path="cart" element={<Cart />} /> */}
+          <Route path="signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
