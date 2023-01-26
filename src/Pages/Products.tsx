@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { getProducts } from "../graphql/productsQueries";
 import { IProduct } from "../interfaces";
-import ProductCard from "./ProductCard";
+import ProductCard from "../components/ProductCard";
 
 
 export default function Products() {

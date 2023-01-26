@@ -10,8 +10,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Signup from "./components/SignUp";
-import Products from "./components/Products";
+import {Signup} from "./Pages/signup";
+import Products from "./Pages/Products";
 
 function Main() {
   return (
@@ -32,7 +32,7 @@ function Main() {
               <Link to="cart">Panier</Link>
             </li> */}
             <li>
-              <Link to="cart">Connexion</Link>
+              <Link to="signup">Connexion</Link>
             </li>
           </ul>
         </nav>
