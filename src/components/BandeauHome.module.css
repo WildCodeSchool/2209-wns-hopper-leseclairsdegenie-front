@@ -1,0 +1,14 @@
+.containerImage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+}
+.containerImage img {
+  width: 17%;
+}
+
+.containerBandeau p {
+  text-align: center;
+  font-size: 50px;
+}
