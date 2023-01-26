@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { createUser } from "../graphql/createUser";
 import eye from "../assets/oeil.png";
 
-export function Signup() {
+export default function Signup() {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -80,3 +80,8 @@ export function Signup() {
     </div>
   );
 }
+// export default Signup();
+
+// function Signup() {
+//     throw new Error("Function not implemented.");
+// }
