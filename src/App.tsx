@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Connection } from "./pages/Connection ";
 
 import Home from "./pages/Home";
 import Category from "./pages/Category";
@@ -55,6 +56,7 @@ function App() {
     <ApolloProvider client={client}>
       <Main />
       <Home />
+      <Connection />
     </ApolloProvider>
   );
 }
