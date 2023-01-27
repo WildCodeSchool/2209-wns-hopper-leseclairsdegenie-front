@@ -1,4 +1,4 @@
-.notificationContainer{
+.notificationContainer {
     background-color: #0000002a;
     border: none;
     width: 100vw;
@@ -10,20 +10,24 @@
     top: 0;
     left: 0;
 }
+
 .notificationContainer:disabled {
     background-color: #0000002a;
     color: #222;
 }
-.notificationContainerContain{
+
+.notificationContainerContain {
     background-color: #AEF3DA;
     border-radius: 8px;
-    max-width: 400px ;
+    max-width: 400px;
     padding: 3rem;
 }
-.notificationIcon{
+
+.notificationIcon {
     width: 5rem;
 }
-.notificationMessage{
+
+.notificationMessage {
     margin: 1.5rem 0;
 }
 
@@ -32,9 +36,10 @@
     margin-top: 1rem;
     background-color: transparent;
     border: none;
-  }
-  
-  .notificationFormSubmit:hover {
+    cursor: pointer;
+}
+
+.notificationFormSubmit:hover {
     color: #ffffff;
-  
-  }
+
+}

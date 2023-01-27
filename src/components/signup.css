@@ -7,6 +7,7 @@
   border-radius: 8px;
   box-shadow: -2px 3px 6px -2px rgba(0, 0, 0, 0.56);
 }
+
 .signupForm {
   width: 20rem;
 }
@@ -24,6 +25,7 @@
   align-items: center;
   gap: 3px;
 }
+
 .signupFormSubmitContainer {
   width: 100%;
   padding: 1px;
@@ -31,14 +33,18 @@
   flex-direction: row;
   justify-content: center;
 }
+
 .signupFormSubmit {
   font-size: 1rem;
   margin-top: 1rem;
   background-color: transparent;
   border: none;
-}.signupFormSubmit:hover {
+  cursor: pointer;
+}
+
+.signupFormSubmit:hover {
   color: #ffffff;
-  
+
 }
 
 .signupFormField {

@@ -38,7 +38,12 @@ export function Notification({
           <img alt="" src={iconChosed} className="notificationIcon" />
 
           <div className="notificationMessage">{message}</div>
-          <button className="notificationFormSubmit" onClick={() => onValidate()}>{textButton}</button>
+          <button
+            className="notificationFormSubmit"
+            onClick={() => onValidate()}
+          >
+            {textButton}
+          </button>
         </div>
       )}
     </button>
