@@ -1,5 +1,6 @@
 import { IProduct } from "../interface";
-import styles from "./ProductCard.module.css";
+import styles from "../assets/CSS/ProductCard.module.css";
+import cyclisme from "../assets/images/cyclisme.jpg";
 
 export interface IProductsProps {
   products: IProduct[] | null;
@@ -9,12 +10,12 @@ const ProductCard = ({ products }: IProductsProps) => (
   <section className={styles.sectionProduct}>
     {products?.map((product) => {
       return (
-        <article key={product.id}>
-          <img src={product.image} alt={product.description} />
+        <article key={product.id} className={styles.articleProduct}>
+          <img src={cyclisme} alt={product.description} />
           <h3>{product.name}</h3>
-          <h4>{product.description}</h4>
+          <p>{product.description}</p>
           <h4>{product.price}€ / jour</h4>
-          <button title="Réserver" />
+          <button className="button">Réserver</button>
         </article>
       );
     })}

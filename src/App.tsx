@@ -34,7 +34,7 @@ function Main() {
         {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/categorie/:name" element={<Category />} />
           {/* <Route path="reservations" element={<Reservations />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
@@ -54,7 +54,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Main />
-      <Home />
     </ApolloProvider>
   );
 }

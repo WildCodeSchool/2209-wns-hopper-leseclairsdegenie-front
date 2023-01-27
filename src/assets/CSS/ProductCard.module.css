@@ -1,0 +1,45 @@
+.sectionProduct {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+.articleProduct {
+  margin: 10px auto;
+  width: 35%;
+  border-radius: 15px;
+  background-color: #eff0ed;
+  text-align: center;
+  padding: 30px;
+  color: #343a55;
+}
+
+.articleProduct button {
+  /* Reset text link default */
+  text-decoration: none;
+  background-color: #aef3da;
+  color: #343a55;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  display: inline-block;
+  width: 250px;
+  border-radius: 12px;
+  border-color: #343a55;
+  font-weight: bold;
+}
+.articleProduct button:hover {
+  background-color: #343a55;
+  color: #eff0ed;
+}
+
+.articleProduct img {
+  width: 60%;
+}
+
+.articleProduct p {
+  padding: 10px;
+  width: 60%;
+  margin: auto;
+  text-align: start;
+}

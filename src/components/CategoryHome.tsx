@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import ski from "../assets/ski.jpg";
-import plongee from "../assets/plongee.jpg";
-import cyclisme from "../assets/cyclisme.jpg";
-import musculation from "../assets/musculation.jpg";
-import styles from "./Category.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import ski from "../assets/images/ski.jpg";
+import plongee from "../assets/images/plongee.jpg";
+import randonnee from "../assets/images/randonnee.jpg";
+import musculation from "../assets/images/musculation.jpg";
+import ciel from "../assets/images/ciel.jpg";
+import styles from "../assets/CSS/Category.module.css";
 const CategoryHome = () => {
   return (
     <div className={styles.containerCategory}>
@@ -30,7 +29,9 @@ const CategoryHome = () => {
           quaerat molestias cupiditate? Adipisci quia ducimus itaque officia
           nihil natus iste!
         </p>
-        <button>Découvrir nos produits</button>
+        <a href="http://localhost:3000/categorie/Mer">
+          <button>Découvrir nos produits</button>
+        </a>
       </div>
       <div className={styles.cardCategory}>
         <img src={musculation} alt="alterre" />
@@ -40,18 +41,35 @@ const CategoryHome = () => {
           totam ut, ullam odit quas a tempore laboriosam aspernatur in aut
           quaerat vel ipsa culpa tempora dicta, aliquid at quasi!
         </p>
-        <button>Découvrir nos produits</button>
+        <a href="http://localhost:3000/categorie/Remise en forme">
+          <button>Découvrir nos produits</button>
+        </a>
       </div>
       <div className={styles.cardCategory}>
-        <img src={cyclisme} alt="cycliste" />
-        <h2>Cycle</h2>
+        <img src={ciel} alt="parapente" />
+        <h2>Ciel</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet sequi
           pariatur tenetur eos deserunt, sunt consectetur rem odio ipsum quasi
           quidem dolorum provident impedit error! Quae iste impedit harum
           tempora.
         </p>
-        <button>Découvrir nos produits</button>
+        <a href="http://localhost:3000/categorie/Ciel">
+          <button>Découvrir nos produits</button>
+        </a>
+      </div>
+      <div className={styles.cardCategory}>
+        <img src={randonnee} alt="randonnee" />
+        <h2>Terre</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet sequi
+          pariatur tenetur eos deserunt, sunt consectetur rem odio ipsum quasi
+          quidem dolorum provident impedit error! Quae iste impedit harum
+          tempora.
+        </p>
+        <a href="http://localhost:3000/categorie/Terre">
+          <button>Découvrir nos produits</button>
+        </a>
       </div>
     </div>
   );
