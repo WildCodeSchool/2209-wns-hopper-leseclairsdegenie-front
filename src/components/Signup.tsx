@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import "./signup.css";
 import { useMutation } from "@apollo/client";
 import { createUser } from "../graphql/createUser";
+import { Notification } from "../components/Notification";
 import eye from "../assets/oeil.png";
+import indexTexts from "../assets/indexTexts.json";
 
 export function Signup() {
   const [notification, setNotification] = useState(false);
@@ -11,11 +14,15 @@ export function Signup() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const createdDate = new Date();
-  console.log(createdDate);
 
   const [doSignupMutation, { data, loading, error }] = useMutation(createUser);
+  console.log(notification);
+  console.log(data);
+  console.log(loading);
+  console.log(error);
 
-  async function doSignup() {
+  async function doSignup(event: { preventDefault: () => void }) {
+    event.preventDefault();
     try {
       await doSignupMutation({
         variables: {
@@ -27,20 +34,31 @@ export function Signup() {
             createdDate,
           },
         },
-      }).then(() => {});
+      }).then(() => {
+        setNotification(true);
+      });
       setEmail("");
       setPassword("");
+      setFirstname("");
+      setLastname("");
     } catch {}
   }
 
   return (
-    <div>
-      {error && (
-        <pre style={{ color: "red" }}>{JSON.stringify(error, null, 4)}</pre>
+    <div className="signupContainer">
+      {notification && (
+        <Notification
+          message={indexTexts.signupNotificationMessage}
+          textButton={indexTexts.signupNotificationTextButton}
+          icon="succes"
+          type="validation"
+          onValidate={() => window.location.reload()}
+        />
       )}
-      <form onSubmit={doSignup}>
-        <p>NOM*</p>
+      <form onSubmit={doSignup} className="signupForm">
+        <p>Nom*</p>
         <input
+          className="signupFormField"
           disabled={loading}
           type="text"
           value={lastname}
@@ -48,34 +66,60 @@ export function Signup() {
         />
         <p>Prénom*</p>
         <input
+          className="signupFormField"
           disabled={loading}
           type="text"
           value={firstname}
           onChange={(e) => setFirstname(e.target.value)}
         />
-        <p>Email*</p>
+        <p>E-mail*</p>
         <input
+          className="signupFormField"
           disabled={loading}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <p>Password*</p>
-        <div>
+        <p>Mot de passe*</p>
+        <div className="signupFormPasswordContainer">
           <input
+            className="signupFormField"
             disabled={loading}
             type={seePassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <img
+            className="signupFormEyeIcon"
             onMouseEnter={() => setSeePassword(true)}
             onMouseLeave={() => setSeePassword(false)}
             src={eye}
             alt="eye"
           />
         </div>
-        <input type="submit" disabled={loading} value="Envoyer" />
+        <div className="signupFormSubmitContainer">
+          <input
+            className="signupFormSubmit"
+            type="submit"
+            disabled={loading}
+            value="Envoyer"
+          />
+        </div>
+        {error && (
+          <pre
+          style={{
+            color: "red",
+            width: "32ch",
+            overflow: "hidden",
+            textAlign: "center",
+            position: "relative",
+            margin: "0",
+            textOverflow: "ellipsis"
+          }}
+        >
+          {JSON.stringify(error.message, null, 1)}
+        </pre>
+        )}
       </form>
     </div>
   );

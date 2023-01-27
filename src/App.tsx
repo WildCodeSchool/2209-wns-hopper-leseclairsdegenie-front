@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Signup } from "./Pages/signup";
+import { Connection } from "./pages/Connection ";
 
 // function Main() {
 //   return (
@@ -19,7 +19,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Signup />
+      <Connection />
     </ApolloProvider>
   );
 }
