@@ -1,0 +1,23 @@
+.containerCategory {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.cardCategory {
+  width: 45%;
+  margin: 2%;
+}
+
+.cardCategory img {
+  width: 90%;
+}
+
+.cardCategory button {
+  background-color: #343a55;
+  color: aliceblue;
+  padding: 10px;
+  border-radius: 10px;
+}
