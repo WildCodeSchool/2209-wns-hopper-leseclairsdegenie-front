@@ -3,6 +3,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Signup } from "./Pages/signup";
 import Products from "./Pages/Products";
+import Home from "./pages/Home";
+import Category from "./pages/Category";
 
 function Main() {
   return (
@@ -33,6 +35,7 @@ function Main() {
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="products" element={<Products />} />
+          <Route path="/categorie/:name" element={<Category />} />
           {/* <Route path="reservations" element={<Reservations />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
           <Route path="signup" element={<Signup />} />
@@ -51,6 +54,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Main />
+      <Home />
     </ApolloProvider>
   );
 }
