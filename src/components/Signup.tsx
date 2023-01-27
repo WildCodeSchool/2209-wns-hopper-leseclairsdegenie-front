@@ -6,7 +6,7 @@ import { Notification } from "../components/Notification";
 import eye from "../assets/oeil.png";
 import indexTexts from "../assets/indexTexts.json";
 
-export default function Signup() {
+export function Signup() {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -124,8 +124,3 @@ export default function Signup() {
     </div>
   );
 }
-// export default Signup();
-
-// function Signup() {
-//     throw new Error("Function not implemented.");
-// }

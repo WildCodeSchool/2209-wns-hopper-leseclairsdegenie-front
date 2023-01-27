@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Connection } from "./pages/Connection ";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
-import Signup from "./components/Signup";
 
 function Main() {
   return (
@@ -27,7 +25,7 @@ function Main() {
               <Link to="cart">Panier</Link>
             </li> */}
             <li>
-              <Link to="signup">Connexion</Link>
+              <Link to="connection">Connexion</Link>
             </li>
           </ul>
         </nav>
@@ -39,7 +37,7 @@ function Main() {
           <Route path="/categorie/:name" element={<Category />} />
           {/* <Route path="reservations" element={<Reservations />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
-          <Route path="signup" element={<Signup />} />
+          <Route path="connection" element={<Connection />} />
         </Routes>
       </div>
     </Router>
