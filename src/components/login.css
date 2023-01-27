@@ -39,6 +39,7 @@
   margin-top: 1rem;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .loginFormSubmit:hover {

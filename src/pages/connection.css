@@ -24,6 +24,12 @@
   background-color: transparent;
   color: #222;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.connectionButtonsOn:hover,
+.connectionButtonsOff:hover {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
 }
 
 .connectionButtonsOff {
@@ -31,4 +37,5 @@
   background-color: transparent;
   color: #c0c0c0;
   font-size: 1.5rem;
+  cursor: pointer;
 }
