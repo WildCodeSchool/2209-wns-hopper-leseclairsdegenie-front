@@ -1,4 +1,4 @@
-import { IProduct } from "../interface";
+import { IProduct } from "../interfaces";
 import styles from "./ProductCard.module.css";
 
 export interface IProductsProps {

@@ -54,6 +54,7 @@ function App() {
     <ApolloProvider client={client}>
       <Main />
       <Home />
+      <Connection />
     </ApolloProvider>
   );
 }
