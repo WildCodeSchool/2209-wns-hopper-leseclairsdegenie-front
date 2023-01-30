@@ -1,36 +1,35 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useMutation } from "@apollo/client";
-import { createUser } from "../graphql/createUser";
+import { signin } from "../graphql/connection";
 import { Notification } from "../components/Notification";
 import indexTexts from "../assets/indexTexts.json";
+import { IConnection } from "../interfaces";
 
-export function Login() {
+export function Login({ onTokenChange }: IConnection): JSX.Element {
   const [notification, setNotification] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [doLoginMutation, { data, loading, error }] = useMutation(createUser);
-  console.log(notification);
-  console.log(data);
-  console.log(loading);
-  console.log(error);
+  const [doLoginMutation, { loading, error }] = useMutation(signin);
 
   async function doLogin(event: { preventDefault: () => void }) {
     event.preventDefault();
     try {
-      await doLoginMutation({
+      const { data } = await doLoginMutation({
         variables: {
-          data: {
-            email,
-            password,
-          },
+          email,
+          password,
         },
-      }).then(() => {
-        setNotification(true);
       });
-      setEmail("");
-      setPassword("");
+      // data.signin = "uijbsdgbsdogjuvb";
+      if (data.signin) {
+        onTokenChange(data.signin);
+        setNotification(true);
+      } else {
+        setEmail("");
+        setPassword("");
+      }
     } catch {}
   }
 
@@ -79,7 +78,7 @@ export function Login() {
               textAlign: "center",
               position: "relative",
               margin: "0",
-              textOverflow: "ellipsis"
+              textOverflow: "ellipsis",
             }}
           >
             {JSON.stringify(error.message, null, 1)}
