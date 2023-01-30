@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "../assets/CSS/signup.css";
 import { useMutation } from "@apollo/client";
 import { createUser } from "../graphql/createUser";
 import { Notification } from "../components/Notification";
-import eye from "../assets/oeil.png";
+import eye from "../assets/images/oeil.png";
 import indexTexts from "../assets/indexTexts.json";
 
 export function Signup() {

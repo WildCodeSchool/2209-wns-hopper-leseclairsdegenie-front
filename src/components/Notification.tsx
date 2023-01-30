@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./notification.css";
-import succesIcon from "../assets/succes.png";
+import "../assets/CSS/notification.css";
+import succesIcon from "../assets/images/succes.png";
 interface INotification {
   type: "validation" | "form";
   icon: "succes" | "";

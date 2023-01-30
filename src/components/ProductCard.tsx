@@ -1,24 +1,29 @@
 import { IProduct } from "../interfaces";
-import styles from "./ProductCard.module.css";
+import "../assets/CSS/ProductCard.css";
 
-export interface IProductsProps {
-  products: IProduct[] | null;
+export interface IProductProps {
+  product: IProduct | null;
 }
 
-const ProductCard = ({ products }: IProductsProps) => (
-  <section className={styles.sectionProduct}>
-    {products?.map((product) => {
-      return (
-        <article key={product.id}>
-          <img src={product.image} alt={product.description} />
+const ProductCard = ({ product }: IProductProps) => {
+  if (product !== null) {
+    return (
+      <article key={product.id} className="card">
+        <img src={product.image} alt={product.description} />
+        <div className="card-body">
           <h3>{product.name}</h3>
           <h4>{product.description}</h4>
-          <h4>{product.price}€ / jour</h4>
-          <button title="Réserver" />
-        </article>
-      );
-    })}
-  </section>
-);
+        </div>
+        <div className="card-foot">
+          <p>{product.price}€ / jour</p>
+          <button  className="button" title="Réserver">Réserver</button>
+        </div>
+      </article>
+    ); 
+  } else {
+    return null;
+  }     
+}
+
 
 export default ProductCard;

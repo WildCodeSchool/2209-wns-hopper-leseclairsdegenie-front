@@ -5,6 +5,7 @@ import { Connection } from "./pages/Connection ";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
+import Products from "./pages/Products";
 
 function Main() {
   return (
@@ -34,10 +35,11 @@ function Main() {
             renders the first one that matches the current URL. */}
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/categorie/:name" element={<Category />} />
+          {/* <Route path="/categorie/:name" element={<Category />} /> */}
           {/* <Route path="reservations" element={<Reservations />} /> */}
           {/* <Route path="cart" element={<Cart />} /> */}
           <Route path="connection" element={<Connection />} />
+          <Route path="products" element={<Products />} />
         </Routes>
       </div>
     </Router>
@@ -53,8 +55,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Main />
-      <Home />
-      <Connection />
     </ApolloProvider>
   );
 }

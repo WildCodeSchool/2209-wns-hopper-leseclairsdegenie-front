@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { getProducts } from "../graphql/productQueries";
 import { IProduct } from "../interfaces";
 import ProductCard from "../components/ProductCard";
+import "../assets/CSS/ProductCard.css";
 
 
 export default function Products() {
@@ -11,6 +12,7 @@ export default function Products() {
     
       if (loading) return (<div>Loading...</div>);
       const products = data ? data.products : null;
+
       return (
         <div>
           <header>
@@ -20,7 +22,13 @@ export default function Products() {
           </header>
           <main>
             <h2>Produits</h2>
-            <ProductCard products={products} />
+            <section className="card-row">
+              {products?.map((product) => {
+                return (
+                  <ProductCard product={product}/>
+                );
+              })}
+            </section>
           </main>
           <footer>
             <div>
