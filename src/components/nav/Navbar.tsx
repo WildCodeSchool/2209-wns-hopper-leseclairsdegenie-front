@@ -30,7 +30,7 @@ const Navbar = () => {
           <Link to="cart">Panier</Link>
         </li>
         <li >
-          <Link to="signup">
+          <Link to="connection">
           Connexion
           </Link>
         </li>

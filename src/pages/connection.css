@@ -1,6 +1,6 @@
 .connectionContainer {
-  width: 100vw;
-  height: 100vh;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +8,6 @@
 
 .connectionContainContainer {
   width: 600px;
-
 }
 
 .connectionButtonsContainer {
