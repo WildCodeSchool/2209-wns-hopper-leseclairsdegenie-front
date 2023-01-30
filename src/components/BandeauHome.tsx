@@ -1,23 +1,20 @@
 import React from "react";
-import ski from "../assets/ski.jpg";
-import plongee from "../assets/plongee.jpg";
-import randonnee from "../assets/randonnee.jpg";
-import escalade from "../assets/escalade.jpg";
-import cyclisme from "../assets/cyclisme.jpg";
-import musculation from "../assets/musculation.jpg";
+
 import styles from "./BandeauHome.module.css";
+import bandeau from "../assets/images/Component61.jpg";
 
 const BandeauHome = () => {
   return (
     <div className={styles.containerBandeau}>
-      <div className={styles.containerImage}>
-        <img src={ski} alt="skieur" />
-        <img src={randonnee} alt="randonneur" />
-        <img src={plongee} alt="plongeur" />
-        <img src={musculation} alt="alterre" />
-        <img src={escalade} alt="escalade" />
-        <img src={cyclisme} alt="cycliste" />
-      </div>
+      <img src={bandeau} useMap="#image-map" />
+      <map name="image-map">
+        <area target="" alt="title" title="title" href="http://localhost:3000/products" coords="41,50,34" shape="circle" />
+        <area target="" alt="" title="" href="http://localhost:3000/products" coords="435,392,31" shape="circle" />
+        <area target="" alt="" title="" href="http://localhost:3000/products" coords="525,46,28" shape="circle" />
+        <area target="" alt="" title="" href="http://localhost:3000/products" coords="916,394,34" shape="circle" />
+        <area target="" alt="" title="" href="http://localhost:3000/products" coords="1010,46,32" shape="circle" />
+        <area target="" alt="" title="" href="http://localhost:3000/products" coords="1411,391,33" shape="circle" />
+      </map>
       <p>Louer votre matériel de sport, c'est aussi ça l'esprit d'équipe.</p>
     </div>
   );
