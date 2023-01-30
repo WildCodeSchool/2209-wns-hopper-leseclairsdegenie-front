@@ -3,10 +3,10 @@ import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
+import { Connection } from "./pages/Connection ";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Connection } from "./pages/Connection ";
 
 
 function Main() {
