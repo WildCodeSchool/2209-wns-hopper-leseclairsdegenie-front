@@ -1,25 +1,42 @@
-import React from 'react';
-import  '../../assets/CSS/NavBar.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import logo from "../../assets/images/logo3.png";
 
-
-interface Props {
-  links: Array<{title:string, link:string}>;
-}
-
-const Navbar: React.FC<Props> = ({ links }) => {
+const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        {links.map((link, index) => (
-          <li key={index}>
-            <Link to={link.link}>{link.title}</Link>
-            <img src={"src\assets\images\logo 3.png"}></img>
-          </li>
-        ))}
+    <nav className="nav">
+      <ul className="menu">
+        <li>
+          {" "}
+          <a href="/">
+            <img
+              className="logo"
+              src={logo}
+              alt="black runner silhouette on green"
+            ></img>
+          </a>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="products">Produits</Link>
+        </li>
+        <li>
+          <Link to="reservations">Réservations</Link>
+        </li>
+        <li>
+          <Link to="cart">Panier</Link>
+        </li>
+        <li >
+          <Link to="connection">
+          Connexion
+          </Link>
+        </li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;

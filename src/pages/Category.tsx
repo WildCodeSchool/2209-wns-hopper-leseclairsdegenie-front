@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/products/ProductCard";
 import { getOneCategory } from "../graphql/Category";
 import { ICategoryProps, IProduct } from "../interfaces";
 

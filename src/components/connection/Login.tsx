@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../assets/CSS/login.css";
 import { useMutation } from "@apollo/client";
-import { createUser } from "../graphql/createUser";
-import { Notification } from "../components/Notification";
-import indexTexts from "../assets/indexTexts.json";
+import { createUser } from "../../graphql/createUser";
+import { Notification } from "./Notification";
+import indexTexts from "../../assets/indexTexts.json";
 
 export function Login() {
   const [notification, setNotification] = useState(false);

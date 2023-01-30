@@ -4,10 +4,22 @@
    url("./assets/Itim-Regular.ttf") format("truetype");
   font-weight: bold;
   }
-body {
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  *,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+  body {
   font-family: sans-serif;
-  color: #222;
+  position: relative;
   margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 h1, h2, h3 {
@@ -31,24 +43,5 @@ h4 {
 }
 
 p {
-  margin: 0;
-}
-* {
-  font-family: Itim;
-}
-
-.container {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 24px;
-}
-
-header {
-  background-color: #F76C6C;
-  color: #fff;
-}
-
-footer {
-  border-top: 2px solid #F76C6C;
+  margin: 0 0 1.15em;
 }

@@ -1,4 +1,4 @@
-import { IProduct } from "../interfaces";
+import { IProduct } from "../../interfaces";
 import "../assets/CSS/ProductCard.css";
 
 export interface IProductProps {

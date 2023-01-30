@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { getProducts } from "../graphql/productQueries";
 import { IProduct } from "../interfaces";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/products/ProductCard";
 import "../assets/CSS/ProductCard.css";
 
 
@@ -30,11 +30,6 @@ export default function Products() {
               })}
             </section>
           </main>
-          <footer>
-            <div>
-                <p>&copy; 2022 Wild Code School</p>
-            </div>
-          </footer>
         </div>
       );
 }

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../assets/CSS/signup.css";
 import { useMutation } from "@apollo/client";
-import { createUser } from "../graphql/createUser";
-import { Notification } from "../components/Notification";
+import { createUser } from "../../graphql/createUser";
+import { Notification } from "./Notification";
 import eye from "../assets/images/oeil.png";
-import indexTexts from "../assets/indexTexts.json";
+import indexTexts from "../../assets/indexTexts.json";
 
-export function Signup() {
+ function Signup() {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -124,3 +124,4 @@ export function Signup() {
     </div>
   );
 }
+export default Signup;

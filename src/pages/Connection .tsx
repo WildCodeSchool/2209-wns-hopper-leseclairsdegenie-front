@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assets/CSS/connection.css";
-import { Login } from "../components/Login";
-import { Signup } from "../components/Signup";
+import { Login } from "../components/connection/Login";
+import  Signup  from "../components/connection/Signup";
 
 export function Connection() {
   const [view, setView] = useState(false); // true = login, false = signup
