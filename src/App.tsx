@@ -3,10 +3,10 @@ import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
-import Signup from "./components/Signup";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Connection } from "./pages/Connection ";
 
 
 function Main() {
@@ -21,7 +21,7 @@ function Main() {
           <Route path="/categorie/:name" element={<Category />} />
           {/* <Route path="reservations" element={<Reservations />} />
           <Route path="cart" element={<Cart />} /> */}
-          <Route path="signup" element={<Signup />} />
+          <Route path="connection" element={<Connection />} />
         </Routes>
       </div>
       <Footer />
