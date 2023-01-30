@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import { getOneCategory } from "../graphql/Category";
-import { ICategoryProps, IProduct } from "../interface";
+import { ICategoryProps, IProduct } from "../interfaces";
 
 const Category = () => {
   //const [products, setProducts] = useState<[IProduct]>();
