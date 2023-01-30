@@ -10,3 +10,12 @@ export interface IProduct {
 export interface ICategoryProps {
   name: string;
 }
+
+export interface IUser {
+  id: number;
+  email: string;
+}
+
+export interface IConnection {
+  onTokenChange: Function;
+}
