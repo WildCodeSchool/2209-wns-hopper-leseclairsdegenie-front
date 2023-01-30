@@ -1,0 +1,34 @@
+.footer {
+  background-color: rgba(52, 58, 85, 1);
+  height: 80px;
+  padding: 10px 10px ;
+
+}
+
+.footermenu {
+    color: rgba(174, 243, 218, 1);
+    display: flex;
+    margin: 0;
+    align-items: baseline;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.footermenu a {
+    list-style: none;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footermenu li {
+    display: inline-block;
+    list-style: none;
+}
+
+.footermenu li:not(:last-of-type) {
+    margin: 0 5px;
+}
+
+.footermenu li:last-of-type {
+    margin-left: auto;
+}

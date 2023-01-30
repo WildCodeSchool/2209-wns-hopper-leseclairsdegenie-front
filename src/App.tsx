@@ -1,45 +1,36 @@
 import React from "react";
 import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Connection } from "./pages/Connection ";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
+import Signup from "./components/Signup";
+import Navbar from "./components/nav/Navbar";
+import Footer from "./components/footer/Footer";
+import { Connection } from "./pages/Connection ";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 function Main() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            {/* <li>
-              <Link to="/">Home</Link>
-            </li> */}
-            <li>
-              <Link to="products">Produits</Link>
-            </li>
-            {/* <li>
-              <Link to="reservations">Réservations</Link>
-            </li> */}
-            {/* <li>
-              <Link to="cart">Panier</Link>
-            </li> */}
-            <li>
-              <Link to="connection">Connexion</Link>
-            </li>
-          </ul>
-        </nav>
+
+        <Navbar />
+
 
         {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/categorie/:name" element={<Category />} />
-          {/* <Route path="reservations" element={<Reservations />} /> */}
-          {/* <Route path="cart" element={<Cart />} /> */}
-          <Route path="connection" element={<Connection />} />
+
+          {/* <Route path="reservations" element={<Reservations />} />
+          <Route path="cart" element={<Cart />} /> */}
+          <Route path="signup" element={<Signup />} />
+
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
@@ -55,6 +46,7 @@ function App() {
       <Main />
       <Home />
       <Connection />
+
     </ApolloProvider>
   );
 }
