@@ -6,7 +6,7 @@ import { Notification } from "../components/Notification";
 import eye from "../assets/oeil.png";
 import indexTexts from "../assets/indexTexts.json";
 
-export function Signup() {
+ function Signup() {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -124,3 +124,4 @@ export function Signup() {
     </div>
   );
 }
+export default Signup;
