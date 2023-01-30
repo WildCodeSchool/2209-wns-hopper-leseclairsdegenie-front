@@ -1,9 +1,25 @@
-body {
+@font-face {
+  font-family: "Itim";
+  src: local("Itim"),
+   url("./assets/Itim-Regular.ttf") format("truetype");
+  font-weight: bold;
+  }
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  *,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+  body {
   font-family: sans-serif;
-  color: #222;
+  position: relative;
   margin: 0;
-  min-height: 100vh;
-  width: auto;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 h1, h2, h3 {
@@ -29,22 +45,9 @@ h4 {
 p {
   margin: 0 0 1.15em;
 }
-/* 
-.container {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 24px;
-} */
 
-/* header {
-  background-color: #F76C6C;
-  color: #fff;
-}
 
-footer {
-  border-top: 2px solid #F76C6C;
-} */
+
 
 /* 
  * card-layout. css 
