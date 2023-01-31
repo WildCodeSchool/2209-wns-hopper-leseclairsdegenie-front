@@ -4,10 +4,12 @@ import { useMutation } from "@apollo/client";
 import { signin } from "../graphql/connection";
 import { Notification } from "../components/Notification";
 import indexTexts from "../assets/indexTexts.json";
+import eye from "../assets/oeil.png";
 import { IConnection } from "../interfaces";
 
 export function Login({ onTokenChange }: IConnection): JSX.Element {
   const [notification, setNotification] = useState(false);
+  const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,8 +39,8 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
     <div className="loginContainer">
       {notification && (
         <Notification
-          message={indexTexts.signupNotificationMessage}
-          textButton={indexTexts.signupNotificationTextButton}
+          message={indexTexts.loginNotificationMessage}
+          textButton={indexTexts.loginNotificationTextButton}
           icon="succes"
           type="validation"
           onValidate={() => window.location.reload()}
@@ -54,13 +56,22 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
           onChange={(e) => setEmail(e.target.value)}
         />
         <p>Mot de passe*</p>
-        <input
-          className="loginFormField"
-          disabled={loading}
-          type={"password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="loginFormPasswordContainer">
+          <input
+            className="loginFormField"
+            disabled={loading}
+            type={seePassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <img
+            className="loginFormEyeIcon"
+            onMouseEnter={() => setSeePassword(true)}
+            onMouseLeave={() => setSeePassword(false)}
+            src={eye}
+            alt="eye"
+          />
+        </div>
         <div className="loginFormSubmitContainer">
           <input
             className="loginFormSubmit"

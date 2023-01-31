@@ -12,6 +12,7 @@ export function Connection() {
   const [view, setView] = useState(false); // true = login, false = signup
   const { data, refetch, error } = useQuery(me, {
     fetchPolicy: "network-only",
+    errorPolicy: "ignore",
   });
 
   useEffect(() => {
@@ -29,17 +30,18 @@ export function Connection() {
       }
     }
   }, [data]);
+  console.log("The usser iss : ", Main);
 
   function onTokenChange(token?: string) {
     if (token) {
       localStorage.setItem("token", token);
+      // Main?.setUser(data.me);
     } else {
       localStorage.removeItem("token");
+      Main?.setUser(undefined);
     }
-    Main?.setUser(undefined);
     refetch();
   }
-  console.log("The user is : " + Main);
 
   return (
     <div className="connectionContainer">

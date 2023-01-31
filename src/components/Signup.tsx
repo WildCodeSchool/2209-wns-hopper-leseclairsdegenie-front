@@ -32,9 +32,9 @@ export function Signup({ onTokenChange }: IConnection): JSX.Element {
           },
         },
       });
-      console.log(data.createUser);
       // data.signin = "uijbsdgbsdogjuvb";
       if (data.createUser) {
+        console.log(data.createUser);
         onTokenChange(data.createUser);
         setNotification(true);
       } else {
