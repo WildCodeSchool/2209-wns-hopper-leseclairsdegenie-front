@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { getProducts } from "../graphql/productQueries";
 import { IProduct } from "../interfaces";
 import ProductCard from "../components/products/ProductCard";
-import "../assets/CSS/ProductCard.css";
+import "../components/products/Products.css";
 
 
 export default function Products() {
@@ -16,9 +16,13 @@ export default function Products() {
       return (
         <div>
           <header>
-            <div>
-              <h1>Wild-rent</h1>
-            </div>
+            <ul className="products-filters">
+              <li>Catégorie</li>
+              <li>Sport</li>
+              <li>Genre</li>
+              <li>Dates</li>
+              <li>Prix</li>
+            </ul>
           </header>
           <main>
             <h2>Produits</h2>

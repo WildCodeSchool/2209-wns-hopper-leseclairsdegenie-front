@@ -1,5 +1,5 @@
 import { IProduct } from "../../interfaces";
-import "../assets/CSS/ProductCard.css";
+import "./Products.css";
 
 export interface IProductProps {
   product: IProduct | null;

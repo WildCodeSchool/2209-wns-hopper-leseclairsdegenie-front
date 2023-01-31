@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../assets/CSS/login.css";
+import "./login.css";
 import { useMutation } from "@apollo/client";
 import { createUser } from "../../graphql/createUser";
 import { Notification } from "./Notification";

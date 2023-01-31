@@ -1,3 +1,16 @@
+
+.products-filters {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 1.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(41, 46, 68);
+  background-color:rgb(174,243,218,.3);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 /* 
  * card-layout. css 
  */
@@ -16,6 +29,7 @@
     border-radius: 7px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     color: rgb(41, 46, 68);
+    font-family: 'Itim';
   }
 
   .card > img:first-child {
@@ -34,21 +48,24 @@
   }
 
   .card-body > h4 {
-    font-size: 0.8rem;
-    font-weight: 200;
-    font-family:Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .card-foot {
     display: flex;
     justify-content: space-between;
     padding: 0 20px 20px 20px;
-
     align-items: center;
   }
   
   .card h3, .card h4{
     margin: 0 0 4px 0;
+  }
+
+  .card-foot > p {
+    margin: 0;
   }
   
   .button {

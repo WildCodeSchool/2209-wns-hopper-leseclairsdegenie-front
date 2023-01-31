@@ -1,12 +1,12 @@
 import React from "react";
-import ski from "../assets/images/ski.jpg";
-import plongee from "../assets/images/plongee.jpg";
-import randonnee from "../assets/images/randonnee.jpg";
-import escalade from "../assets/images/escalade.jpg";
-import cyclisme from "../assets/images/cyclisme.jpg";
-import musculation from "../assets/images/musculation.jpg";
-import styles from "../assets/CSS/BandeauHome.module.css";
-import bandeau from "../assets/images/Component61.jpg";
+import ski from "../../assets/images/ski.jpg";
+import plongee from "../../assets/images/plongee.jpg";
+import randonnee from "../../assets/images/randonnee.jpg";
+import escalade from "../../assets/images/escalade.jpg";
+import cyclisme from "../../assets/images/cyclisme.jpg";
+import musculation from "../../assets/images/musculation.jpg";
+import styles from "./BandeauHome.module.css";
+import bandeau from "../../assets/images/Component61.jpg";
 
 const BandeauHome = () => {
   return (
