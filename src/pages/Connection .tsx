@@ -30,7 +30,6 @@ export function Connection() {
       }
     }
   }, [data]);
-  console.log("The usser iss : ", Main);
 
   function onTokenChange(token?: string) {
     if (token) {
@@ -42,6 +41,7 @@ export function Connection() {
     }
     refetch();
   }
+  console.log("The usser iss : ", data);
 
   return (
     <div className="connectionContainer">

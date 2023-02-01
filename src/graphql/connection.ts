@@ -17,6 +17,13 @@ export const me = gql`
     me {
       id
       email
+      firstname
+      lastname
+      deliveryAdress
+      createdAt
+      cart {
+        id
+      }
     }
   }
 `;

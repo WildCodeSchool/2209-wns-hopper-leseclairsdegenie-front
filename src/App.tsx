@@ -14,6 +14,7 @@ import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Connection } from "./pages/Connection ";
 import { MainProvider } from './MainContexts';
+import { PurchaseProces } from "./pages/PurchaseProces";
 
 function Main() {
   return (
@@ -29,6 +30,7 @@ function Main() {
             {/* <Route path="reservations" element={<Reservations />} />
           <Route path="cart" element={<Cart />} /> */}
             <Route path="connection" element={<Connection />} />
+            <Route path="purchaseProces" element={<PurchaseProces />} />
           </Routes>
         </div>
         <Footer />
