@@ -10,3 +10,8 @@ export interface IProduct {
 export interface ICategoryProps {
   name: string;
 }
+
+export interface ICategory {
+  id: number;
+  name: string;
+}

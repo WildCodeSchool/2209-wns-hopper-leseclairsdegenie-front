@@ -1,4 +1,3 @@
-
 .products-filters {
   display: flex;
   justify-content: space-evenly;
@@ -6,7 +5,7 @@
   font-size: 1.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(41, 46, 68);
-  background-color:rgb(174,243,218,.3);
+  background-color:rgb(174,243,218);
   padding-top: 1%;
   padding-bottom: 1%;
 }
@@ -16,30 +15,34 @@
  */
  .card-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center ;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin: 5%;
   }
   
   .card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 24rem;
-    width: 16rem;
+    height: 30rem;
+    width: 20rem;
     border: 1px solid #c9c9c9;
     border-radius: 7px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     color: rgb(41, 46, 68);
     font-family: 'Itim';
+    background-color: white;
   }
 
   .card > img:first-child {
     border-radius: 7px 7px 0 0;
-    max-width: 100%;
-    height: 12rem;
+    height: 16rem;
   }
 
   .card-body {
-    flex-grow: 3;
+    flex-grow: 1;
     padding: 20px 20px 0 20px;
   }
 
