@@ -23,6 +23,32 @@ export const me = gql`
       createdAt
       cart {
         id
+        billingfirstname
+        billingLastname
+        billingAdress
+        deliveryfirstname
+        deliveryLastname
+        deliveryAdress
+        reservations {
+          id
+          startDate
+          endDate
+          quantity
+          price
+          taxes
+          product {
+            id
+            name
+            description
+            image
+            price
+            disponibility
+            category {
+              id
+              name
+            }
+          }
+        }
       }
     }
   }

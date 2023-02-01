@@ -5,95 +5,103 @@ import { signin } from "../graphql/connection";
 import { Notification } from "./Notification";
 import indexTexts from "../assets/indexTexts.json";
 import eye from "../assets/oeil.png";
-import { IAddressComponent } from "../interfaces"
+import { IAddressComponent } from "../interfaces";
 
-export function Address({ address, setAddress }: IAddressComponent): JSX.Element {
-  const [notification, setNotification] = useState(false);
-  const [seePassword, setSeePassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [doLoginMutation, { loading, error }] = useMutation(signin);
-
-  async function doLogin(event: { preventDefault: () => void }) {
-    event.preventDefault();
-    try {
-      const { data } = await doLoginMutation({
-        variables: {
-          email,
-          password,
-        },
-      });
-      // data.signin = "uijbsdgbsdogjuvb";
-      if (data.signin) {
-        setNotification(true);
-      } else {
-        setEmail("");
-        setPassword("");
-      }
-    } catch {}
-  }
-
+export function Address({
+  address,
+  setAddress,
+}: IAddressComponent): JSX.Element {
   return (
-    <div className="loginContainer">
-      {notification && (
-        <Notification
-          message={indexTexts.loginNotificationMessage}
-          textButton={indexTexts.loginNotificationTextButton}
-          icon="succes"
-          type="validation"
-          onValidate={() => window.location.reload()}
-        />
-      )}
-      <form onSubmit={doLogin} className="loginForm">
-        <p>E-mail*</p>
-        <input
-          className="loginFormField"
-          disabled={loading}
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <p>Mot de passe*</p>
-        <div className="loginFormPasswordContainer">
+    <div className="addressContainer">
+      <p>Adresse de facturation</p>
+      <form className="addressForm">
+        <div className="addressFormFieldContainer">
+          <p>Nom</p>
           <input
-            className="loginFormField"
-            disabled={loading}
-            type={seePassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <img
-            className="loginFormEyeIcon"
-            onMouseEnter={() => setSeePassword(true)}
-            onMouseLeave={() => setSeePassword(false)}
-            src={eye}
-            alt="eye"
+            className="addressFormField"
+            type="text"
+            value={address.billing?.lastname}
+            onChange={(e) =>
+              setAddress({
+                ...address,
+                billing: { ...address.billing, lastname: e.target.value },
+              })
+            }
           />
         </div>
-        <div className="loginFormSubmitContainer">
+        <div className="addressFormFieldContainer">
+          <p>Prénom</p>
           <input
-            className="loginFormSubmit"
-            type="submit"
-            disabled={loading}
-            value="Envoyer"
+            className="addressFormField"
+            type="text"
+            value={address.billing?.firstname}
+            onChange={(e) =>
+              setAddress({
+                ...address,
+                billing: { ...address.billing, firstname: e.target.value },
+              })
+            }
           />
         </div>
-        {error && (
-          <pre
-            style={{
-              color: "red",
-              width: "32ch",
-              overflow: "hidden",
-              textAlign: "center",
-              position: "relative",
-              margin: "0",
-              textOverflow: "ellipsis",
+        <div className="addressFormFieldContainer">
+          <p>Adresse</p>
+          <input
+            className="addressFormFieldAddress"
+            type="text"
+            value={address.billing?.address}
+            onChange={(e) =>
+              setAddress({
+                ...address,
+                billing: { ...address.billing, address: e.target.value },
+              })
+            }
+          />
+        </div>
+      </form>
+      <p>Adresse de livraison</p>
+      <form className="addressForm">
+        <div className="addressFormFieldContainer">
+          <p>Nom*</p>
+          <input
+            className="addressFormField"
+            type="text"
+            value={address.delivery?.lastname}
+            onChange={(e) => {
+              setAddress({
+                ...address,
+                delivery: { ...address.delivery, lastname: e.target.value },
+              });
             }}
-          >
-            {JSON.stringify(error.message, null, 1)}
-          </pre>
-        )}
+          />
+        </div>
+        <div className="addressFormFieldContainer">
+          <p>Prénom*</p>
+          <input
+            className="addressFormField"
+            type="text"
+            value={address.delivery?.firstname}
+            onChange={(e) =>
+              setAddress({
+                ...address,
+                delivery: { ...address.delivery, firstname: e.target.value },
+              })
+            }
+          />
+        </div>
+        <div className="addressFormFieldContainer">
+          <p>Adresse*</p>
+          <input
+            className="addressFormFieldAddress"
+            type="text"
+            value={address.delivery?.address}
+            onChange={(e) =>
+              setAddress({
+                ...address,
+                delivery: { ...address.delivery, address: e.target.value },
+              })
+            }
+          />
+        </div>
       </form>
     </div>
   );

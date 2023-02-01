@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Address } from "../components/Address";
 import { Login } from "../components/Login";
 import { MainContext } from "../MainContexts";
@@ -8,20 +8,54 @@ import "./purchaseProces.css";
 
 export function PurchaseProces() {
   const Main = useContext(MainContext);
+  useEffect(() => {
+    Main?.refetch();
+  }, []);
+  console.log(Main?.user);
   const [view, setView] = useState<IPurchaseProces>({
     cart: true,
     address: false,
     payment: false,
     confirmation: false,
-  });
+  });dsfdsf
+  // un useeffect si view.cart o view.payment true update cart con las infos de address
   const [address, setAddress] = useState<IAddressOrder>({
     delivery: {
-      lastname: Main?.user?.lastname ? Main?.user?.lastname : "",
-      firstname: Main?.user?.firstname ? Main?.user?.firstname : "",
-      address: Main?.user?.deliveryAdress ? Main?.user?.deliveryAdress : "",
+      lastname: Main?.user?.cart.deliveryLastname
+        ? Main?.user?.cart.deliveryLastname
+        : Main?.user?.lastname
+        ? Main?.user?.lastname
+        : "",
+      firstname: Main?.user?.cart.deliveryfirstname
+        ? Main?.user?.cart.deliveryfirstname
+        : Main?.user?.firstname
+        ? Main?.user?.firstname
+        : "",
+      address: Main?.user?.cart.deliveryAdress
+        ? Main?.user?.cart.deliveryAdress
+        : Main?.user?.deliveryAdress
+        ? Main?.user?.deliveryAdress
+        : "",
+    },
+    billing: {
+      lastname: Main?.user?.cart.deliveryLastname
+        ? Main?.user?.cart.deliveryLastname
+        : Main?.user?.lastname
+        ? Main?.user?.lastname
+        : "",
+      firstname: Main?.user?.cart.deliveryfirstname
+        ? Main?.user?.cart.deliveryfirstname
+        : Main?.user?.firstname
+        ? Main?.user?.firstname
+        : "",
+      address: Main?.user?.cart.deliveryAdress
+        ? Main?.user?.cart.deliveryAdress
+        : Main?.user?.deliveryAdress
+        ? Main?.user?.deliveryAdress
+        : "",
     },
   });
-
+  console.log(address);
   return (
     <div className="purchaseProcesContainer">
       <div className="purchaseProcesBarStatusContainer">
