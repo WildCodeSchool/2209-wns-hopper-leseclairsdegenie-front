@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "./login.css";
+import "./connection/login.css";
 import { useMutation } from "@apollo/client";
-import { signin } from "../../graphql/connection";
-import { Notification } from "./Notification";
-import indexTexts from "../../assets/indexTexts.json";
-import eye from "../../assets/oeil.png";
-import { IConnection } from "../../interfaces";
+import { signin } from "../graphql/connection";
+import { Notification } from "./connection/Notification";
+import indexTexts from "../assets/indexTexts.json";
+import eye from "../assets/oeil.png";
+import { IAddressComponent } from "../interfaces"
 
-export function Login({ onTokenChange }: IConnection): JSX.Element {
+export function Address({ address, setAddress }: IAddressComponent): JSX.Element {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -26,7 +26,6 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
       });
       // data.signin = "uijbsdgbsdogjuvb";
       if (data.signin) {
-        onTokenChange(data.signin);
         setNotification(true);
       } else {
         setEmail("");

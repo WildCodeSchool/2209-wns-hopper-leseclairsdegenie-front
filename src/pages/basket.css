@@ -1,0 +1,42 @@
+.BasketPage {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0;
+}
+.column-left {
+  width: 75%;
+}
+.column-right {
+  width: 25%;
+  display: block;
+  text-align: center;
+}
+
+.resumeCommande {
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #343a55;
+  padding: 2rem 0;
+  background-color: #eff0ed;
+}
+
+.resumeCommande button {
+  padding: 10px;
+  background-color: #aef3da;
+  color: #343a55;
+  border-style: none;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.payement {
+  margin: 20px 0;
+}
+
+.btn-caisse:hover {
+  background-color: #343a55;
+  color: #aef3da;
+  cursor: pointer;
+}

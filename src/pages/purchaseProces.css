@@ -1,0 +1,81 @@
+.purchaseProcesContainer {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purchaseProcesBarStatusContainer {
+  display: flex;
+  margin-bottom: 3rem;
+  font-family: Itim;
+}
+
+.purchaseProcesBarStatusItemOn {
+  background-color: #AEF3DA;
+  color: #343A55;
+  padding: 1rem;
+  text-align: center;
+  min-width: 200px;
+  font-weight: 500;
+}
+
+.purchaseProcesBarStatusItemOff {
+  background-color: #343A55;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  min-width: 200px;
+  font-weight: 400;
+}
+
+.purchaseProcesContainContainer {}
+
+.purchaseProcesButtonsContainer {
+  width: calc(100% - 6rem);
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.purchaseProcesButtonsBack {
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background-color: #AEF3DA;
+  color: #343A55;
+  padding: 1rem;
+  text-align: center;
+  min-width: 150px;
+  border-radius: 30px;
+  font-family: Itim;
+}
+
+.purchaseProcesButtonsNext {
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background-color: #343A55;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  min-width: 150px;
+  border-radius: 30px;
+  font-family: Itim;
+}
+
+.purchaseProcesButtonsBack:hover,
+.purchaseProcesButtonsNext:hover {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.13);
+}
+
+.purchaseProcesButtonsContainer2 {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
