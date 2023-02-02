@@ -12,11 +12,14 @@ const CategoryFilter = () => {
     if (loading) return (<div>Loading...</div>);
     const categories = data ? data.categories : null;
     return (
-        <select value="Choisis une catégorie de sport">
-            {categories?.map((category) => (
-                <option value={category.id}>{category.name}</option>
-            ))}
-        </select>
+        <div>
+            <select className="custom-select">
+                <option selected>Type de sport</option>
+                {categories?.map((category) => (
+                    <option value={category.id} className="selected-category">{category.name}</option>
+                ))}
+            </select>
+        </div>
     )
 };
 

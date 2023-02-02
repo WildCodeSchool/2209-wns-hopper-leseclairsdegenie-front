@@ -3,7 +3,7 @@ import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
-import Products from "./pages/Products";
+import Products from "./components/products/Products";
 import { Connection } from "./pages/Connection ";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
@@ -20,10 +20,11 @@ function Main() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/categorie/:name" element={<Category />} /> */}
-          {/* <Route path="reservations" element={<Reservations />} />
-          <Route path="cart" element={<Cart />} /> */}
+          {/* <Route path="reservations" element={<Reservations />} />*/ }
+          {/* <Route path="cart" element={<Cart />} />  */}
           <Route path="connection" element={<Connection />} />
           <Route path="products" element={<Products />} />
+          <Route path="products/details" element={<Products />} />
         </Routes>
       </div>
       <Footer />
