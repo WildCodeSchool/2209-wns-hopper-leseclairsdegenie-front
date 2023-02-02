@@ -47,11 +47,20 @@
 
 }
 
+.loginFormPasswordContainer {
+  width: 100%;
+  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+
 .loginFormField {
   border-radius: 4px;
   border: none;
   padding: 1rem;
-  width: calc(100% - 2rem);
+  width: 100%
 }
 
 .loginFormField:focus {

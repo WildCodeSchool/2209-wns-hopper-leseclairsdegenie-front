@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { useMutation } from "@apollo/client";
-import { createUser } from "../graphql/createUser";
+import { createUser } from "../graphql/connection";
 import { Notification } from "../components/Notification";
 import eye from "../assets/oeil.png";
 import indexTexts from "../assets/indexTexts.json";
+import { IConnection } from "../interfaces";
 
- function Signup() {
+export function Signup({ onTokenChange }: IConnection): JSX.Element {
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -15,16 +16,12 @@ import indexTexts from "../assets/indexTexts.json";
   const [lastname, setLastname] = useState("");
   const createdDate = new Date();
 
-  const [doSignupMutation, { data, loading, error }] = useMutation(createUser);
-  console.log(notification);
-  console.log(data);
-  console.log(loading);
-  console.log(error);
+  const [doSignupMutation, { loading, error }] = useMutation(createUser);
 
   async function doSignup(event: { preventDefault: () => void }) {
     event.preventDefault();
     try {
-      await doSignupMutation({
+      const { data } = await doSignupMutation({
         variables: {
           data: {
             email,
@@ -34,14 +31,21 @@ import indexTexts from "../assets/indexTexts.json";
             createdDate,
           },
         },
-      }).then(() => {
-        setNotification(true);
       });
-      setEmail("");
-      setPassword("");
-      setFirstname("");
-      setLastname("");
-    } catch {}
+      // data.signin = "uijbsdgbsdogjuvb";
+      if (data.createUser) {
+        console.log(data.createUser);
+        onTokenChange(data.createUser);
+        setNotification(true);
+      } else {
+        setEmail("");
+        setPassword("");
+        setFirstname("");
+        setLastname("");
+      }
+    } catch {
+      console.log("errorr rr r");
+    }
   }
 
   return (
@@ -107,21 +111,20 @@ import indexTexts from "../assets/indexTexts.json";
         </div>
         {error && (
           <pre
-          style={{
-            color: "red",
-            width: "32ch",
-            overflow: "hidden",
-            textAlign: "center",
-            position: "relative",
-            margin: "0",
-            textOverflow: "ellipsis"
-          }}
-        >
-          {JSON.stringify(error.message, null, 1)}
-        </pre>
+            style={{
+              color: "red",
+              width: "32ch",
+              overflow: "hidden",
+              textAlign: "center",
+              position: "relative",
+              margin: "0",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {JSON.stringify(error.message, null, 1)}
+          </pre>
         )}
       </form>
     </div>
   );
 }
-export default Signup;
