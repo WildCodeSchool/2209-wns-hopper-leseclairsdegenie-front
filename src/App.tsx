@@ -7,7 +7,7 @@ import Signup from "./components/Signup";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import Basket from "./pages/Basket";
 
 function Main() {
   return (
@@ -22,6 +22,7 @@ function Main() {
           {/* <Route path="reservations" element={<Reservations />} />
           <Route path="cart" element={<Cart />} /> */}
           <Route path="signup" element={<Signup />} />
+          <Route path="basket" element={<Basket />} />
         </Routes>
       </div>
       <Footer />
