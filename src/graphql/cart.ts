@@ -13,3 +13,11 @@ export const verifyReservationsList = gql`
     verifyReservationsList(Id: $id)
   }
 `;
+
+export const createOrder = gql`
+  mutation CreateOrder {
+  createOrder {
+    id
+  }
+}
+`;

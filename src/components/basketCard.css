@@ -39,7 +39,7 @@
   height: 50px;
   text-align: center;
 }
-input {
+.BasketCard input {
   width: 25px;
   height: 25px;
 }
@@ -50,7 +50,7 @@ input {
   border-color: #343a55;
 }
 
-p {
+.BasketCard p {
   font-weight: bold;
   color: #343a55;
 }

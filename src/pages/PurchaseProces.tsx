@@ -10,7 +10,11 @@ import { Payment } from "../components/purchaseProces/Payment";
 import { Confirmation } from "../components/purchaseProces/Confirmation";
 import { Cart } from "../components/purchaseProces/Cart";
 import { useMutation } from "@apollo/client";
-import { updateCart, verifyReservationsList } from "../graphql/cart";
+import {
+  createOrder,
+  updateCart,
+  verifyReservationsList,
+} from "../graphql/cart";
 import indexTexts from "../assets/indexTexts.json";
 
 export function PurchaseProces() {
@@ -118,12 +122,26 @@ export function PurchaseProces() {
       setNotification(true);
     }
   };
-  const toPay = () => {
-    console.log("Je paie");
+  const [doCreateOrder] = useMutation(createOrder);
+  const toPay = async () => {
+    try {
+      const { data } = await doCreateOrder();
+      if (data) {
+        console.log("Je paie");
+        console.log(data);
+        setOrderId(data.createOrder.id);
+      } else {
+        console.log("Je peux pas payer");
+        setNotification(true);
+      }
+    } catch {
+      console.log("error createOrder");
+      setNotification(true);
+    }
     // Ici post api createOrder, next setOrderId avec res => id new order
-    setOrderId(0);
   };
-  console.log(Main?.user);
+
+  console.log(Main);
   return (
     <div className="purchaseProcesContainer">
       {notification && (
