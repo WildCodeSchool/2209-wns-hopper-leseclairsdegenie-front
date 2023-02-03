@@ -11,6 +11,11 @@ export interface ICategoryProps {
   name: string;
 }
 
+export interface ICategory {
+  id: number;
+  name: string;
+}
+
 export interface IUser {
   id: number;
   email: string;

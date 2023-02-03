@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ski from "../assets/ski.jpg";
-import plongee from "../assets/plongee.jpg";
-import cyclisme from "../assets/cyclisme.jpg";
-import musculation from "../assets/musculation.jpg";
+import ski from "../../assets/images/ski.jpg";
+import plongee from "../../assets/images/plongee.jpg";
+import cyclisme from "../../assets/images/cyclisme.jpg";
+import musculation from "../../assets/images/musculation.jpg";
 import styles from "./Category.module.css";
 import { Link, useNavigate } from "react-router-dom";
 const CategoryHome = () => {

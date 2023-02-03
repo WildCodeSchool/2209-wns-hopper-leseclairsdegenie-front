@@ -1,6 +1,6 @@
 import React from "react";
-import BandeauHome from "../components/BandeauHome";
-import CategoryHome from "../components/CategoryHome";
+import BandeauHome from "../components/home/BandeauHome";
+import CategoryHome from "../components/home/CategoryHome";
 
 const Home = () => {
   return (

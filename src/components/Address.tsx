@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./login.css";
+import "./connection/login.css";
 import { useMutation } from "@apollo/client";
 import { signin } from "../graphql/connection";
-import { Notification } from "./Notification";
+import { Notification } from "./connection/Notification";
 import indexTexts from "../assets/indexTexts.json";
 import eye from "../assets/oeil.png";
 import { IAddressComponent } from "../interfaces"

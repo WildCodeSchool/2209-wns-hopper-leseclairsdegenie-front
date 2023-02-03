@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { useMutation } from "@apollo/client";
-import { createUser } from "../graphql/connection";
-import { Notification } from "../components/Notification";
-import eye from "../assets/oeil.png";
-import indexTexts from "../assets/indexTexts.json";
-import { IConnection } from "../interfaces";
+import { Notification } from "./Notification";
+import eye from "../../assets/images/oeil.png";
+import indexTexts from "../../assets/indexTexts.json";
+import { IConnection } from "../../interfaces";
+import { createUser } from "../../graphql/connection";
 
 export function Signup({ onTokenChange }: IConnection): JSX.Element {
   const [notification, setNotification] = useState(false);

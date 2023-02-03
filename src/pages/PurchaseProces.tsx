@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState } from "react";
 import { Address } from "../components/Address";
-import { Login } from "../components/Login";
+import { Login } from "../components/connection/Login";
 import { MainContext } from "../MainContexts";
 import { IAddressOrder, IPurchaseProces } from "../interfaces";
 import "./purchaseProces.css";

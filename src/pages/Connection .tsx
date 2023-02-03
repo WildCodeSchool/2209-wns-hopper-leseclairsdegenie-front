@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from "react";
-import "./connection.css";
-import { Login } from "../components/Login";
-import { Signup } from "../components/Signup";
+import "../components/connection/connection.css";
+import { Login } from "../components/connection/Login";
+import { Signup } from "../components/connection/Signup";
 import { useQuery } from "@apollo/client";
 import { me } from "../graphql/connection";
 import { MainContext } from "../MainContexts";
