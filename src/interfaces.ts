@@ -6,6 +6,32 @@ export interface IProduct {
   id: number;
   name: string;
 }
+export interface IReservation {
+  id: number;
+  product: IProduct;
+  cart: ICart;
+  order?: IOrder;
+  startDate: Date;
+  endDate: Date;
+  quantity: number;
+  price: number;
+  taxes: number;
+}
+export interface IOrder {
+  id: number;
+  user: IUser;
+  billingfirstname: string;
+  billingLastname: string;
+  billingAdress: string;
+  deliveryfirstname: string;
+  deliveryLastname: string;
+  deliveryAdress: string;
+  totalPrice: number;
+  statusDelivery: string;
+  date: Date;
+  reservations: IReservation[];
+  cart?: ICart;
+}
 
 export interface ICategoryProps {
   name: string;
@@ -16,6 +42,19 @@ export interface ICategory {
   name: string;
 }
 
+export interface ICart {
+  id: number;
+  user?: IUser;
+  billingfirstname: string;
+  billingLastname: string;
+  billingAdress: string;
+  deliveryfirstname: string;
+  deliveryLastname: string;
+  deliveryAdress: string;
+  lastTimeModified?: Date;
+  reservations?: IReservation[];
+}
+
 export interface IUser {
   id: number;
   email: string;
@@ -23,7 +62,7 @@ export interface IUser {
   lastname: string;
   deliveryAdress: string;
   createdAt: Date;
-  cartId: number;
+  cart: ICart;
 }
 
 export interface IConnection {

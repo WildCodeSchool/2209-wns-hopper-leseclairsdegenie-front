@@ -2,5 +2,7 @@
     "signupNotificationMessage": "Votre compte a bien été créé ! 😊",
     "signupNotificationTextButton": "Continuer",
     "loginNotificationMessage": "Bienvenu de nouveau ! 🎉",
-    "loginNotificationTextButton": "Continuer"
+    "loginNotificationTextButton": "Continuer",
+    "purchaseProcesNotificationMessage": "Ups, il y a un problème 😬",
+    "purchaseProcesNotificationTextButton": "Recharger la page"
 }

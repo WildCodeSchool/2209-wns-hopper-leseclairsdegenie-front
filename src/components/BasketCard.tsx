@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ski from "../assets/ski.jpg";
+import ski from "../assets/images/ski.jpg";
 import "./basketCard.css";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IData } from "../pages/Basket";

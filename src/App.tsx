@@ -8,11 +8,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home";
-import Category from "./pages/Category";
 import Products from "./components/products/Products";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Basket from "./pages/Basket";
 import { Connection } from "./pages/Connection ";
 import { MainProvider } from "./MainContexts";

@@ -27,7 +27,7 @@ const Navbar = () => {
           <Link to="reservations">Réservations</Link>
         </li>
         <li>
-          <Link to="cart">Panier</Link>
+          <Link to="purchaseProces">Panier</Link>
         </li>
         <li >
           <Link to="connection">

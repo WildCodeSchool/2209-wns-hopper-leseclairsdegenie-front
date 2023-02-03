@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./signup.css";
 import { useMutation } from "@apollo/client";
-import { Notification } from "./Notification";
+import { Notification } from "../Notification";
 import eye from "../../assets/images/oeil.png";
 import indexTexts from "../../assets/indexTexts.json";
 import { IConnection } from "../../interfaces";
 import { createUser } from "../../graphql/connection";
+import { useNavigate } from "react-router-dom";
 
 export function Signup({ onTokenChange }: IConnection): JSX.Element {
+  const navigate = useNavigate();
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -56,7 +58,7 @@ export function Signup({ onTokenChange }: IConnection): JSX.Element {
           textButton={indexTexts.signupNotificationTextButton}
           icon="succes"
           type="validation"
-          onValidate={() => window.location.reload()}
+          onValidate={() => navigate("/")}
         />
       )}
       <form onSubmit={doSignup} className="signupForm">
