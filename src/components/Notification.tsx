@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./notification.css";
+import errorIcon from "../assets/error.png";
 import succesIcon from "../assets/succes.png";
 interface INotification {
   type: "validation" | "form";
-  icon: "succes" | "";
+  icon: "succes" | "error";
   message: string;
   textButton: string;
   onValidate: Function;
@@ -20,6 +21,9 @@ export function Notification({
   useEffect(() => {
     if (icon === "succes") {
       setIconChose(succesIcon);
+    }
+    if (icon === "error") {
+      setIconChose(errorIcon);
     }
   }, [icon]);
 

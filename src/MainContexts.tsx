@@ -5,7 +5,7 @@ import { IUser } from "./interfaces";
 interface IMainProvider {
   children?: React.ReactNode;
 }
-interface IMainContexts {
+export interface IMainContexts {
   user: IUser | null | undefined;
   setUser: Function;
   refetch: Function;

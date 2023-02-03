@@ -29,6 +29,7 @@ export const me = gql`
         deliveryfirstname
         deliveryLastname
         deliveryAdress
+        lastTimeModified
         reservations {
           id
           startDate
@@ -53,3 +54,4 @@ export const me = gql`
     }
   }
 `;
+

@@ -39,13 +39,14 @@ export interface ICategoryProps {
 
 export interface ICart {
   id: number;
-  user: IUser;
+  user?: IUser;
   billingfirstname: string;
   billingLastname: string;
   billingAdress: string;
   deliveryfirstname: string;
   deliveryLastname: string;
   deliveryAdress: string;
+  lastTimeModified?: Date;
   reservations?: IReservation[];
 }
 

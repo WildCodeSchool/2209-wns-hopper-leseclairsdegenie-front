@@ -6,8 +6,10 @@ import { Notification } from "../components/Notification";
 import indexTexts from "../assets/indexTexts.json";
 import eye from "../assets/oeil.png";
 import { IConnection } from "../interfaces";
+import { useNavigate } from "react-router-dom";
 
 export function Login({ onTokenChange }: IConnection): JSX.Element {
+  const navigate = useNavigate();
   const [notification, setNotification] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -43,7 +45,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
           textButton={indexTexts.loginNotificationTextButton}
           icon="succes"
           type="validation"
-          onValidate={() => window.location.reload()}
+          onValidate={() => navigate("/")}
         />
       )}
       <form onSubmit={doLogin} className="loginForm">
