@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { MainContext } from "../MainContexts";
+import React, { useContext, useEffect } from "react";
+import { MainContext } from "../../MainContexts";
 import "./payment.css";
 
 export function Payment(): JSX.Element {

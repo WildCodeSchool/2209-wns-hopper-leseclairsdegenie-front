@@ -15,3 +15,12 @@ export const getOneCategory = gql`
     }
   }
 `;
+
+export const getCategories = gql`
+    query Categories {
+        categories {
+          id
+          name
+        }
+}
+`

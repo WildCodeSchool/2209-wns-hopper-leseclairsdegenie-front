@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Address } from "../components/Address";
+import { Address } from "../components/purchaseProces/Address";
 import { MainContext } from "../MainContexts";
 import { Notification } from "../components/Notification";
 import { IAddressOrder, IPurchaseProces } from "../interfaces";
 import "./purchaseProces.css";
-import { Payment } from "../components/Payment";
-import { Confirmation } from "../components/Confirmation";
-import { Cart } from "../components/Cart";
+import { Payment } from "../components/purchaseProces/Payment";
+import { Confirmation } from "../components/purchaseProces/Confirmation";
+import { Cart } from "../components/purchaseProces/Cart";
 import { useMutation } from "@apollo/client";
 import { updateCart, verifyReservationsList } from "../graphql/cart";
 import indexTexts from "../assets/indexTexts.json";

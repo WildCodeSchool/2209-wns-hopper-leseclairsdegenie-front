@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState } from "react";
 import "./connection.css";
-import { Login } from "../components/Login";
-import { Signup } from "../components/Signup";
+import { Login } from "../components/connection/Login";
+import { Signup } from "../components/connection/Signup";
 import { MainContext } from "../MainContexts";
 
 export function Connection() {

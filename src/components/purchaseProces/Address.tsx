@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./address.css";
-import { IAddressComponent } from "../interfaces";
-import { MainContext } from "../MainContexts";
+import { IAddressComponent } from "../../interfaces";
+import { MainContext } from "../../MainContexts";
 
 export function Address({
   address,

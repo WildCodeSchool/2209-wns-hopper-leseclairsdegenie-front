@@ -1,5 +1,5 @@
 import React from "react";
-import check from "../assets/images/check.svg";
+import check from "../../assets/images/check.svg";
 import "./confirmation.css";
 
 export function Confirmation({

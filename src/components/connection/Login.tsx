@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useMutation } from "@apollo/client";
-import { signin } from "../graphql/connection";
-import { Notification } from "../components/Notification";
-import indexTexts from "../assets/indexTexts.json";
-import eye from "../assets/oeil.png";
-import { IConnection } from "../interfaces";
+import { signin } from "../../graphql/connection";
+import { Notification } from "../Notification";
+import indexTexts from "../../assets/indexTexts.json";
+import eye from "../../assets/images/oeil.png";
+import { IConnection } from "../../interfaces";
 import { useNavigate } from "react-router-dom";
 
 export function Login({ onTokenChange }: IConnection): JSX.Element {

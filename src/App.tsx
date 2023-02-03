@@ -8,12 +8,13 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home";
-import Category from "./pages/Category";
+import Products from "./components/products/Products";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Basket from "./pages/Basket";
 import { Connection } from "./pages/Connection ";
-import { MainProvider } from './MainContexts';
+import { MainProvider } from "./MainContexts";
 import { PurchaseProces } from "./pages/PurchaseProces";
 
 function Main() {
@@ -24,17 +25,20 @@ function Main() {
           <Navbar />
           {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/categorie/:name" element={<Category />} />
-            {/* <Route path="reservations" element={<Reservations />} />
-          <Route path="cart" element={<Cart />} /> */}
-            <Route path="connection" element={<Connection />} />
-            <Route path="purchaseProces" element={<PurchaseProces />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/categorie/:name" element={<Category />} /> */}
+          {/* <Route path="reservations" element={<Reservations />} />*/ }
+          {/* <Route path="cart" element={<Cart />} />  */}
+          <Route path="connection" element={<Connection />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/details" element={<Products />} />
+          <Route path="basket" element={<Basket />} />
+          <Route path="purchaseProces" element={<PurchaseProces />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
     </MainProvider>
   );
 }
