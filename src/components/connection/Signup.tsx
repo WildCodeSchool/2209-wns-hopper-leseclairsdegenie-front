@@ -16,7 +16,6 @@ export function Signup({ onTokenChange }: IConnection): JSX.Element {
   const [password, setPassword] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const createdDate = new Date();
 
   const [doSignupMutation, { loading, error }] = useMutation(createUser);
 
@@ -30,13 +29,10 @@ export function Signup({ onTokenChange }: IConnection): JSX.Element {
             password,
             firstname,
             lastname,
-            createdDate,
           },
         },
       });
-      // data.signin = "uijbsdgbsdogjuvb";
       if (data.createUser) {
-        console.log(data.createUser);
         onTokenChange(data.createUser);
         setNotification(true);
       } else {

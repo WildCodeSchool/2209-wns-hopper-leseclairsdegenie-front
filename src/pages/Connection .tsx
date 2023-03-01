@@ -10,17 +10,12 @@ export function Connection() {
   const [view, setView] = useState(false); // true = login, false = signup
   
 
-  function onTokenChange(token?: string) {
+  function onTokenChange(token: string) {
     if (token) {
       localStorage.setItem("token", token);
-      // Main?.setUser(data.me);
-    } else {
-      localStorage.removeItem("token");
-      Main?.setUser(undefined);
+      Main?.refetch();
     }
-    Main?.refetch();
   }
-  console.log("The usser iss : ", Main);
 
   return (
     <div className="connectionContainer">

@@ -25,7 +25,6 @@ export const MainProvider: React.FunctionComponent<IMainProvider> = ({
   useEffect(() => {
     if (error) {
       setUser(undefined);
-      console.log("Not user connected");
     }
   }, [error]);
 
@@ -37,12 +36,13 @@ export const MainProvider: React.FunctionComponent<IMainProvider> = ({
       }
     }
   }, [data]);
+  console.log(user);
   return (
     <MainContext.Provider
       value={{
         user,
         setUser,
-        refetch
+        refetch,
       }}
     >
       {children}

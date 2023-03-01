@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/images/logo3.png";
+import { MainContext } from "../../MainContexts";
 
 const Navbar = () => {
+  const Main = useContext(MainContext);
+  const logout = () => {
+    Main?.setUser(undefined);
+    localStorage.removeItem("token");
+    Main?.refetch();
+  };
   return (
     <nav className="nav">
       <ul className="menu">
@@ -29,10 +36,14 @@ const Navbar = () => {
         <li>
           <Link to="purchaseProces">Panier</Link>
         </li>
-        <li >
-          <Link to="connection">
-          Connexion
-          </Link>
+        <li>
+          {Main?.user?.id ? (
+            <button type="button" onClick={() => logout()}>
+              Déconnexion
+            </button>
+          ) : (
+            <Link to="connection">Connexion</Link>
+          )}
         </li>
       </ul>
     </nav>

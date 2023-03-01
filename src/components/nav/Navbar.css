@@ -4,27 +4,35 @@
     font-family: "Itim";
 }
 
-.logo  {
+.logo {
     margin-right: 10px;
     height: 3rem;
 }
+
 .icon {
     font-size: 50px;
     color: black;
 }
+
 .menu {
-    
+
     display: flex;
     margin: 0;
     align-items: center;
-    padding: 10px 10px ;
+    padding: 10px 10px;
 }
-.menu a {
+
+.menu a,
+.menu button {
     color: rgba(174, 243, 218, 1);
     list-style: none;
     text-decoration: none;
     font-size: 30px;
     margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    font-family: "Itim";
+    cursor: pointer;
 }
 
 .menu li {
@@ -39,6 +47,7 @@
 .menu li:last-of-type {
     margin-left: auto;
 }
+
 a:active {
     color: white;
-  }
+}
