@@ -8,6 +8,7 @@ export const getProducts = gql`
             # category {
             #     name
             # }
+            id
             description
             disponibility
             image
@@ -19,17 +20,18 @@ export const getProducts = gql`
 `
 
 export const getProduct = gql`
-    query Product($productId: ID!) {
-        product(id: $wilderId) {
-        # category {
-        #     name
-        # }
-        description
-        disponibility
-        image
-        name
-        price
-        # ajouter réservations
+    query Product($id: ID!) {
+        product(Id: $id) {
+            # category {
+            #     name
+            # }
+            id
+            description
+            disponibility
+            image
+            name
+            price
+            # ajouter réservations
         }
     }
 `

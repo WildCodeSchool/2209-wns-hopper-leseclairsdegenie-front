@@ -48,7 +48,6 @@ export default function Products() {
             </select>
           </li>
         </ul>
-        
       </header>
       <main>
         <section className="card-row">

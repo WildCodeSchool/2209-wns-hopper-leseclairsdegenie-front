@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IProduct } from "../../interfaces";
 import "./Products.css";
 
@@ -13,7 +14,7 @@ const ProductCard = ({ product }: IProductProps) => {
         <div className="card-body">
           <h3>{product.name}</h3>
           <h4>{product.description}</h4>
-          <a className="product-details" href={"product/details"}>+ Détails</a>
+          <Link className="product-details-link" to={`/products/product-details/${product.id}`}>+ Détails</Link>
         </div>
         <div className="card-foot">
           <p>{product.price}€ / jour</p>
