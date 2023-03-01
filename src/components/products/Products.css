@@ -85,7 +85,7 @@
     margin: 0 0 4px 0;
   }
 
-  .product-details {
+  .product-details-link {
     text-decoration: none;
     color: rgb(41, 46, 68);
     cursor: pointer;
@@ -107,4 +107,12 @@
     box-shadow: none;
     font-size: 1rem;
     cursor: pointer;
+  }
+
+  .product-details {
+    display: flex;
+  }
+
+  .product-details > img {
+    width: 40%;
   }
