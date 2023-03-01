@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 export function Login({ onTokenChange }: IConnection): JSX.Element {
   const navigate = useNavigate();
   const [notification, setNotification] = useState(false);
+  const [notificationError, setNotificationError] = useState(false);
   const [seePassword, setSeePassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,18 +28,30 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
         },
       });
       // data.signin = "uijbsdgbsdogjuvb";
-      if (data.signin) {
+      if (data.signin && data.signin !== "user not found") {
         onTokenChange(data.signin);
         setNotification(true);
       } else {
         setEmail("");
         setPassword("");
+        setNotificationError(true);
       }
     } catch {}
   }
 
   return (
     <div className="loginContainer">
+      {notificationError && (
+        <Notification
+          message={indexTexts.loginNotificationErrorMessage}
+          textButton={indexTexts.loginNotificationTextErrorButton}
+          icon="error"
+          type="validation"
+          onValidate={() => {
+            setNotificationError(false);
+          }}
+        />
+      )}
       {notification && (
         <Notification
           message={indexTexts.loginNotificationMessage}

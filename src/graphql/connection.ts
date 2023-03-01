@@ -15,12 +15,45 @@ export const signin = gql`
 export const me = gql`
   query Me {
     me {
-      id
-      email
-      firstname
-      lastname
-      deliveryAdress
+      orders {
+        id
+        billingfirstname
+        billingLastname
+        billingAdress
+        deliveryfirstname
+        deliveryLastname
+        deliveryAdress
+        totalPrice
+        statusDelivery
+        date
+        reservations {
+          id
+          product {
+            id
+            name
+            description
+            image
+            price
+            quantity
+            disponibility
+            category {
+              id
+              name
+            }
+          }
+          startDate
+          endDate
+          quantity
+          price
+          taxes
+        }
+      }
       createdAt
+      deliveryAdress
+      lastname
+      firstname
+      email
+      id
       cart {
         id
         billingfirstname
@@ -43,6 +76,7 @@ export const me = gql`
             description
             image
             price
+            quantity
             disponibility
             category {
               id
@@ -54,4 +88,3 @@ export const me = gql`
     }
   }
 `;
-

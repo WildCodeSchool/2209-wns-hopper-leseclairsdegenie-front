@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./notification.css";
-import errorIcon from "../assets/error.png"
+import errorIcon from "../assets/error.png";
 import succesIcon from "../assets/succes.png";
 interface INotification {
   type: "validation" | "form";
@@ -28,10 +28,11 @@ export function Notification({
   }, [icon]);
 
   return (
-    <button
+    <div
       className="notificationContainer"
-      disabled={backgroundDissable}
-      onClick={() => onValidate()}
+      onClick={() => {
+        !backgroundDissable && onValidate();
+      }}
     >
       {type === "validation" && (
         <div
@@ -43,6 +44,7 @@ export function Notification({
 
           <div className="notificationMessage">{message}</div>
           <button
+            type="button"
             className="notificationFormSubmit"
             onClick={() => onValidate()}
           >
@@ -50,6 +52,6 @@ export function Notification({
           </button>
         </div>
       )}
-    </button>
+    </div>
   );
 }
