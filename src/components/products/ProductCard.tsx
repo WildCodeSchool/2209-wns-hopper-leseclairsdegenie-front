@@ -16,7 +16,7 @@ const ProductCard = ({ product }: IProductProps) => {
           <a className="product-details" href={"product/details"}>+ Détails</a>
         </div>
         <div className="card-foot">
-          <p>{product.price}€ / jour</p>
+        <span data-testid="product-price"><p>{product.price}€ / jour</p></span>
           <button  className="button" title="Réserver">Réserver</button>
         </div>
       </article>
