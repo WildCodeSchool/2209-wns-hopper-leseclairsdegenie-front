@@ -1,6 +1,6 @@
 name: client-tests-workflow
 
-on: pull-request
+on: pull_request
 
 jobs:
   test-client:
