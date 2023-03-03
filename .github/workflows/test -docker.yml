@@ -1,9 +1,12 @@
 name: client-tests-docker
-on: push
+
+on:
+  push:
+    branches:
+      - 'main'
 
 jobs:
   docker:
-    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
       -
