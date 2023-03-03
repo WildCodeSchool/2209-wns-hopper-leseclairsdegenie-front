@@ -3,7 +3,7 @@ name: client-tests-docker
 on:
   push:
     branches:
-      - 'dev'git
+      - 'dev'
       - 'main'
 
 jobs:
