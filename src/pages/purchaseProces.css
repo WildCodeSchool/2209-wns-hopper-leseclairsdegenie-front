@@ -14,8 +14,8 @@
 }
 
 .purchaseProcesBarStatusItemOn {
-  background-color: #AEF3DA;
-  color: #343A55;
+  background-color: #aef3da;
+  color: #343a55;
   padding: 1rem;
   text-align: center;
   min-width: 200px;
@@ -23,7 +23,7 @@
 }
 
 .purchaseProcesBarStatusItemOff {
-  background-color: #343A55;
+  background-color: #343a55;
   color: #ffffff;
   padding: 1rem;
   text-align: center;
@@ -31,7 +31,9 @@
   font-weight: 400;
 }
 
-.purchaseProcesContainContainer {}
+.purchaseProcesContainContainer {
+  width: 100%;
+}
 
 .purchaseProcesButtonsContainer {
   width: calc(100% - 6rem);
@@ -45,8 +47,8 @@
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
-  background-color: #AEF3DA;
-  color: #343A55;
+  background-color: #aef3da;
+  color: #343a55;
   padding: 1rem;
   text-align: center;
   min-width: 150px;
@@ -58,7 +60,7 @@
   border: none;
   cursor: pointer;
   font-size: 0.9rem;
-  background-color: #343A55;
+  background-color: #343a55;
   color: #ffffff;
   padding: 1rem;
   text-align: center;

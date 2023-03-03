@@ -16,6 +16,7 @@ import {
   verifyReservationsList,
 } from "../graphql/cart";
 import indexTexts from "../assets/indexTexts.json";
+import Basket from "./Basket";
 
 export function PurchaseProces() {
   const navigate = useNavigate();
@@ -214,7 +215,8 @@ export function PurchaseProces() {
         </div>
       </div>
       <div className="purchaseProcesContainContainer">
-        {view.cart && <Cart onValidateCart={() => verifyReservations()} />}
+        {/* {view.cart && <Cart onValidateCart={() => verifyReservations()} />} */}
+        {view.cart && <Basket onValidateCart={() => verifyReservations()} />}
         {view.address && <Address address={address} setAddress={setAddress} />}
         {view.payment && <Payment />}
         {view.confirmation && <Confirmation orderId={orderId} />}

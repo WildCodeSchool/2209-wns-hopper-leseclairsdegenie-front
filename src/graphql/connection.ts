@@ -63,6 +63,7 @@ export const me = gql`
         deliveryLastname
         deliveryAdress
         lastTimeModified
+        totalePrice
         reservations {
           id
           startDate
@@ -70,6 +71,7 @@ export const me = gql`
           quantity
           price
           taxes
+          nbJours
           product {
             id
             name
