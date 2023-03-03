@@ -1,5 +1,4 @@
-name: client-tests-workflow
-
+name: client-tests-docker
 on: push
 
 jobs:
