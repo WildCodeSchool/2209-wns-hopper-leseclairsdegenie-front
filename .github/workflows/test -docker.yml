@@ -1,6 +1,6 @@
-name: client-tests-workflow
+name: client-tests-docker
 
-on: pull-request
+on: push
 
 jobs:
   test-client:
