@@ -1,9 +1,11 @@
 import { useQuery } from "@apollo/client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProduct } from "../../graphql/productQueries";
 import { IProduct } from "../../interfaces";
 import { MainContext } from "../../MainContexts";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function ProductDetails () {
 
@@ -13,6 +15,8 @@ export default function ProductDetails () {
       );
 
     const Main = useContext(MainContext);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
 
     if (loading) return (<div>Loading...</div>);
     const product = data ? data.product : null;
@@ -24,14 +28,10 @@ export default function ProductDetails () {
                 <h2>{product?.name}</h2>
                 <p> {product?.description} </p>
                 <label>du : <span> </span> 
-                    <input type="date" id="start"
-                            value="2023-02-03"
-                            min="2023-02-03" max="2024-02-03"/>
+                    <DatePicker selected={startDate} onChange={(date) => {if(date !== null) setStartDate(date)}}/>
                 </label>
                 <label>au : <span></span> 
-                    <input type="date" id="end"
-                            value="2023-02-03"
-                            min="2023-02-03" max="2024-02-03"/>
+                    <DatePicker selected={endDate} onChange={(date) => {if(date !== null) setEndDate(date)}}/>
                 </label>
                 <div>
                     {Main?.user?.id ? (

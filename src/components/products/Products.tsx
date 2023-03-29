@@ -4,12 +4,17 @@ import { IProduct } from "../../interfaces";
 import ProductCard from "./ProductCard";
 import "./Products.css";
 import CategoryFilter from "./CategoryFilter";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 export default function Products() {
   const { loading, data, refetch } = useQuery<{ products: IProduct[] }>(
       getProducts
     );
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   
   if (loading) return (<div>Loading...</div>);
   const products = data ? data.products : null;
@@ -28,16 +33,12 @@ export default function Products() {
             </select>
           </li>
           <li className="custom-select date-select">
-            <label>du : <span> </span> 
-              <input type="date" id="start"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>
-            <label>au : <span></span> 
-              <input type="date" id="end"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>           
+          <label>du :
+            <DatePicker selected={startDate} onChange={(date) => {if(date !== null) setStartDate(date)}}/>
+          </label>
+          <label>au : 
+            <DatePicker selected={endDate} onChange={(date) => {if(date !== null) setEndDate(date)}}/>
+          </label>          
           </li>
           <li>
             <select className="custom-select">
