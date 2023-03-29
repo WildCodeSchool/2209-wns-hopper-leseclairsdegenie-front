@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: jugets/wild-rent-front:latest
+          tags: lesgenies/front:latest
