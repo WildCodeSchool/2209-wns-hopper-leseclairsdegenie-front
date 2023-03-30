@@ -9,7 +9,7 @@ export interface IDataProps {
 }
 
 const BasketCard = (props: IData) => {
-  console.log(props);
+  console.log("props = ", props);
   const [quantity, setQuantity] = useState(props.data.quantity);
 
   const incrementQuantity = () => {
