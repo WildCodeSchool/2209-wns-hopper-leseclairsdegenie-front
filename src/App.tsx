@@ -42,8 +42,21 @@ function Main() {
     </MainProvider>
   );
 }
+
+const createUrl = () => {
+  let URI;
+  if (window.location.href.includes("stagging.hopper4")) {
+    URI = "https://back.stagging.hopper4.wns.wilders.dev/";
+  } else if (window.location.href.includes("prod.hopper4")) {
+    URI = "https://back.prod.hopper4.wns.wilders.dev/";
+  } else {
+    URI = "https://localhost:5000";
+  }
+  return URI;
+};
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000",
+  uri: createUrl(),
 });
 
 const authLink = setContext((_, { headers }) => {
