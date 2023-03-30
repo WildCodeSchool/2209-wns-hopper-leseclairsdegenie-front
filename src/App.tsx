@@ -25,20 +25,20 @@ function Main() {
           <Navbar />
           {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/categorie/:name" element={<Category />} /> */}
-          {/* <Route path="reservations" element={<Reservations />} />*/ }
-          {/* <Route path="cart" element={<Cart />} />  */}
-          <Route path="connection" element={<Connection />} />
-          <Route path="products" element={<Products />} />
-          <Route path="products/details" element={<Products />} />
-          <Route path="basket" element={<Basket />} />
-          <Route path="purchaseProces" element={<PurchaseProces />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/categorie/:name" element={<Category />} /> */}
+            {/* <Route path="reservations" element={<Reservations />} />*/}
+            {/* <Route path="cart" element={<Cart />} />  */}
+            <Route path="connection" element={<Connection />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/details" element={<Products />} />
+            <Route path="basket" element={<PurchaseProces />} />
+            <Route path="purchaseProces" element={<PurchaseProces />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </MainProvider>
   );
 }

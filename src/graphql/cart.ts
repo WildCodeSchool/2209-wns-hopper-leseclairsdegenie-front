@@ -16,8 +16,16 @@ export const verifyReservationsList = gql`
 
 export const createOrder = gql`
   mutation CreateOrder {
-  createOrder {
-    id
+    createOrder {
+      id
+    }
   }
-}
+`;
+
+export const addPriceCart = gql`
+  mutation AddPriceCart($price: Float!) {
+    addPriceCart(price: $price) {
+      id
+    }
+  }
 `;

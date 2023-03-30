@@ -16,6 +16,7 @@ export interface IReservation {
   quantity: number;
   price: number;
   taxes: number;
+  nbJours: number;
 }
 export interface IOrder {
   id: number;
@@ -53,6 +54,7 @@ export interface ICart {
   deliveryAdress: string;
   lastTimeModified?: Date;
   reservations?: IReservation[];
+  totalePrice: number | null;
 }
 
 export interface IUser {

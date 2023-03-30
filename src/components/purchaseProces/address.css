@@ -1,4 +1,6 @@
 .addressContainer {
+  width: 80%;
+  margin: auto;
   display: flex;
   font-family: Itim;
 }
@@ -8,7 +10,7 @@
 }
 
 .addressContainer p {
-  color: #343A55;
+  color: #343a55;
   font-size: 0.9rem;
 }
 
@@ -44,7 +46,7 @@
 
 .addressFormField:focus,
 .addressFormFieldAddress:focus {
-  outline: 1px solid #343A55;
+  outline: 1px solid #343a55;
 }
 .addressFormFieldAddress {
   height: 5rem;
