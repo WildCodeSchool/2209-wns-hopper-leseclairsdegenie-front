@@ -13,7 +13,6 @@ export interface IDataProps {
 }
 
 const BasketCard = (props: any) => {
-  console.log(props);
   const [doDeleteReservation, { loading, error }] = useMutation(
     deleteReservation,
     { refetchQueries: [me], awaitRefetchQueries: true }
