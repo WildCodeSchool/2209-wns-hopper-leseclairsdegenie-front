@@ -1,71 +1,78 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  useMutation,
+  createHttpLink,
 } from "@apollo/client";
-import { createUser } from "./graphql/createUser";
-
-function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [doSignupMutation, { data, loading, error }] = useMutation(createUser);
-
-  async function doSignup() {
-    try {
-      await doSignupMutation({
-        variables: {
-          data: {
-            email,
-            password,
-          },
-        },
-      });
-      setEmail("");
-      setPassword("");
-    } catch {}
-  }
-
-  return (
-    <>
-      {error && (
-        <pre style={{ color: "red" }}>{JSON.stringify(error, null, 4)}</pre>
-      )}
-      <p>Email:</p>
-      <input
-        disabled={loading}
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <p>Password:</p>
-      <input
-        disabled={loading}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button disabled={loading} onClick={doSignup}>
-        Signup
-      </button>
-    </>
-  );
-}
+import { setContext } from "@apollo/client/link/context";
+import Home from "./pages/Home";
+import Products from "./components/products/Products";
+import Navbar from "./components/nav/Navbar";
+import Footer from "./components/footer/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Basket from "./pages/Basket";
+import { Connection } from "./pages/Connection ";
+import { MainProvider } from "./MainContexts";
+import { PurchaseProces } from "./pages/PurchaseProces";
 
 function Main() {
   return (
-    <div>
-      <Signup />
-    </div>
+    <MainProvider>
+      <Router>
+        <div>
+          <Navbar />
+          {/* A <Routes> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/categorie/:name" element={<Category />} /> */}
+            {/* <Route path="reservations" element={<Reservations />} />*/}
+            {/* <Route path="cart" element={<Cart />} />  */}
+            <Route path="connection" element={<Connection />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/details" element={<Products />} />
+            <Route path="basket" element={<PurchaseProces />} />
+            <Route path="purchaseProces" element={<PurchaseProces />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </MainProvider>
   );
 }
 
+const createUrl = () => {
+  let URI;
+  if (window.location.href.includes("stagging.hopper4")) {
+    URI = "https://back.stagging.hopper4.wns.wilders.dev/";
+  } else if (window.location.href.includes("prod.hopper4")) {
+    URI = "https://back.prod.hopper4.wns.wilders.dev/";
+  } else {
+    URI = "http://localhost:5000";
+  }
+  return URI;
+};
+
+const httpLink = createHttpLink({
+  uri: createUrl(),
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem("token");
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
 const client = new ApolloClient({
-  uri: "http://localhost:5000",
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 

@@ -1,0 +1,53 @@
+.nav {
+    background-color: rgba(52, 58, 85, 1);
+    height: 80px;
+    font-family: "Itim";
+}
+
+.logo {
+    margin-right: 10px;
+    height: 3rem;
+}
+
+.icon {
+    font-size: 50px;
+    color: black;
+}
+
+.menu {
+
+    display: flex;
+    margin: 0;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.menu a,
+.menu button {
+    color: rgba(174, 243, 218, 1);
+    list-style: none;
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    font-family: "Itim";
+    cursor: pointer;
+}
+
+.menu li {
+    display: inline-block;
+    list-style: none;
+}
+
+.menu li:not(:last-of-type) {
+    margin: 0 5px;
+}
+
+.menu li:last-of-type {
+    margin-left: auto;
+}
+
+a:active {
+    color: white;
+}

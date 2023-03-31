@@ -1,0 +1,107 @@
+.BasketCard {
+  width: 90%;
+  margin: 15px auto;
+  border-radius: 15px;
+  border-color: #343a55;
+  border-style: solid;
+  padding: 10px 15px;
+  background-color: #eff0ed;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameProduct {
+  text-align: center;
+  color: #343a55;
+  font-weight: bold;
+}
+
+.nameProduct > hr {
+  border-top: 1px solid #343a55;
+  width: 30%;
+}
+
+.nameProduct > p {
+  margin: 0;
+}
+
+.detail img {
+  width: 150px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.taille,
+.prix,
+.quantite,
+.check,
+.image,
+.duree,
+.totaleReservation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantite {
+  display: flex; /* establish flex container */
+  flex-direction: row; /* default value; can be omitted */
+  flex-wrap: nowrap; /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+}
+
+.quantite > div {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+.detail input {
+  width: 25px;
+  height: 25px;
+}
+
+.btn-quantity {
+  border-radius: 8px;
+  background-color: #ffffff;
+  border-color: #343a55;
+}
+
+.detail p {
+  font-weight: bold;
+  color: #343a55;
+}
+.svg-delete {
+  width: 2em;
+  height: 2em;
+  color: #343a55;
+}
+
+.btn-quantity:hover {
+  background-color: #343a55;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#topping:hover {
+  cursor: pointer;
+}
+
+.svg-delete:hover {
+  cursor: pointer;
+}
+
+.supprimer {
+  padding-top: 2%;
+}
+
+.plusMoins {
+  padding-top: 6%;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
