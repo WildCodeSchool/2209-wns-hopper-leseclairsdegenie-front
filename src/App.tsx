@@ -50,7 +50,7 @@ const createUrl = () => {
   } else if (window.location.href.includes("prod.hopper4")) {
     URI = "https://back.prod.hopper4.wns.wilders.dev/";
   } else {
-    URI = "https://localhost:5000";
+    URI = "http://localhost:5000";
   }
   return URI;
 };

@@ -61,7 +61,7 @@ const Basket = ({ onValidateCart }: { onValidateCart: Function }) => {
   return (
     <div className="BasketPage">
       <div className="column-left">
-        {reservationsPanier &&
+        {reservationsPanier && nbReservations > 0 ? (
           reservationsPanier.map((item) => {
             return (
               <BasketCard
@@ -70,7 +70,15 @@ const Basket = ({ onValidateCart }: { onValidateCart: Function }) => {
                 key={item.id}
               />
             );
-          })}
+          })
+        ) : (
+          <div className="noReservation">
+            <p>Vous n'avez pas de réservations dans votre panier</p>
+            <a href="http://localhost:3000/products">
+              Cliquez ici pour réserver
+            </a>
+          </div>
+        )}
       </div>
       {nbReservations > 0 && noDisponibilityIncrement !== nbReservations && (
         <div className="column-right">
