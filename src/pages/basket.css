@@ -1,5 +1,5 @@
 .BasketPage {
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -12,6 +12,7 @@
   width: 25%;
   display: block;
   text-align: center;
+  padding-right: 5%;
 }
 
 .resumeCommande {
@@ -32,11 +33,51 @@
 }
 
 .payement {
+  width: 100%;
   margin: 20px 0;
+}
+
+.payement > img {
+  width: 100%;
 }
 
 .btn-caisse:hover {
   background-color: #343a55;
   color: #aef3da;
   cursor: pointer;
+}
+.vide-container {
+  width: 100%;
+  margin: auto;
+}
+
+.vide-container > p {
+  text-align: center;
+  margin-top: 2rem;
+  color: #343a55;
+  font-weight: bold;
+}
+
+.vide {
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #343a55;
+  background-color: #eff0ed;
+  width: 50%;
+  margin: auto;
+  padding: 2rem 2rem;
+  text-align: center;
+  color: #343a55;
+  font-weight: bold;
+}
+.proposition-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border-top: #343a55 solid;
+  border-bottom: #343a55 solid;
+}
+.proposition-container:hover {
+  border-top: #343a55 none;
+  border-bottom: #343a55 none;
 }
