@@ -1,13 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./address.css";
 import { IAddressComponent } from "../../interfaces";
 import { MainContext } from "../../MainContexts";
+import ResumeCommande from "../../components/purchaseProces/resumeCommande";
 
 export function Address({
   address,
   setAddress,
 }: IAddressComponent): JSX.Element {
   const Main = useContext(MainContext);
+
+  const [resume, setResume] = useState(Main?.user?.cart.reservations);
   useEffect(() => {
     const start = async () => {
       await Main?.refetch();
@@ -48,10 +51,12 @@ export function Address({
               : "",
           },
         });
+        setResume(Main?.user?.cart?.reservations);
+        console.log("resume ====>", resume);
       }
     };
     start();
-  }, []);
+  }, [Main]);
   return (
     <div className="addressContainer">
       <div className="addressFormContainer">
@@ -143,6 +148,11 @@ export function Address({
             />
           </div>
         </form>
+      </div>
+      <div className="resumeContainer">
+        {resume && (
+          <ResumeCommande data={resume} totale={Main?.user?.cart.totalePrice} />
+        )}
       </div>
     </div>
   );

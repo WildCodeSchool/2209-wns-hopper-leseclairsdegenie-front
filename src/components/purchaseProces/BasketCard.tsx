@@ -60,7 +60,7 @@ const BasketCard = (props: any) => {
 
           <div className="detail">
             <div className="image">
-              <img src={ski} alt="ski" />
+              <img src={props.data.product.image} alt="ski" />
             </div>
             {props.data.taille && (
               <div className="taille">
@@ -131,10 +131,10 @@ const BasketCard = (props: any) => {
           </div>
           <div className="detailPub">
             <div className="image">
-              <img src={ski} alt="ski" />
+              <img src={props.data.image} alt="ski" />
             </div>
           </div>
-          <a href="localhost:3000/product">Découvrir</a>
+          <a href="http://localhost:3000/products">Découvrir</a>
         </div>
       )}
     </div>

@@ -9,13 +9,13 @@
 }
 .BasketCardPub {
   padding: 10px 15px;
-  background-color: #eff0ed;
+  /* background-color: #eff0ed; */
 }
-.BasketCardPub:hover {
+/* .BasketCardPub:hover {
   border-radius: 15px;
   border-color: #343a55;
   border-style: solid;
-}
+} */
 .productPub {
   display: flex;
   flex-direction: column;

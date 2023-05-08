@@ -1,4 +1,4 @@
-.BasketPage {
+.reservaions {
   width: 100%;
   margin: auto;
   display: flex;
@@ -46,12 +46,13 @@
   color: #aef3da;
   cursor: pointer;
 }
-.vide-container {
+.vide-container,
+.proposition-container {
   width: 100%;
   margin: auto;
 }
 
-.vide-container > p {
+.texte-proposition > p {
   text-align: center;
   margin-top: 2rem;
   color: #343a55;
@@ -70,14 +71,14 @@
   color: #343a55;
   font-weight: bold;
 }
-.proposition-container {
+.proposition {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  border-top: #343a55 solid;
-  border-bottom: #343a55 solid;
+  /* border-top: #343a55 solid;
+  border-bottom: #343a55 solid; */
 }
-.proposition-container:hover {
+/* .proposition:hover {
   border-top: #343a55 none;
   border-bottom: #343a55 none;
-}
+} */
