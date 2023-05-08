@@ -6,17 +6,17 @@ export interface IProduct {
   id: number;
   name: string;
 }
-export interface IReservation {
-  id: number;
-  product: IProduct;
-  cart: ICart;
-  order?: IOrder;
-  startDate: Date;
+export interface IResevations {
   endDate: Date;
-  quantity: number;
+  id: string;
   price: number;
-  taxes: number;
-  nbJours: number;
+  taille: string | null;
+  duree: number;
+  quantity: number;
+  product: IProduct;
+  startDate: Date;
+  taxes: number | null;
+  image?: string;
 }
 export interface IOrder {
   id: number;
@@ -30,7 +30,7 @@ export interface IOrder {
   totalPrice: number;
   statusDelivery: string;
   date: Date;
-  reservations: IReservation[];
+  reservations: IResevations[];
   cart?: ICart;
 }
 
@@ -53,7 +53,7 @@ export interface ICart {
   deliveryLastname: string;
   deliveryAdress: string;
   lastTimeModified?: Date;
-  reservations?: IReservation[];
+  reservations?: IResevations[];
   totalePrice: number | null;
 }
 
