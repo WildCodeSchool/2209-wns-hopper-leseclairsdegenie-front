@@ -1,11 +1,15 @@
+
 export interface IProduct {
   image: string;
   price: number;
+  quantity: number;
   disponibility: boolean;
   description: string;
   id: number;
   name: string;
+  category: ICategory;
 }
+
 export interface IReservation {
   id: number;
   product: IProduct;

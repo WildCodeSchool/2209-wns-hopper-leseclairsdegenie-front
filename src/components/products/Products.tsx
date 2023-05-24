@@ -3,60 +3,71 @@ import { getProducts } from "../../graphql/productQueries";
 import { IProduct } from "../../interfaces";
 import ProductCard from "./ProductCard";
 import "./Products.css";
-import CategoryFilter from "./CategoryFilter";
-
+import { useState } from "react";
 
 export default function Products() {
-  const { loading, data, refetch } = useQuery<{ products: IProduct[] }>(
-      getProducts
-    );
-  
-  if (loading) return (<div>Loading...</div>);
+  const { loading, data } = useQuery<{ products: IProduct[] }>(
+    getProducts
+  );
+
+  const [filteredList, setFilteredList] = useState< IProduct[]>();
+
   const products = data ? data.products : null;
+
+  const search = (event: any) => {
+    const query = event.target.value;
+    let updatedList = [...(products || [])];
+    updatedList = updatedList.filter((item) => {
+      return (
+        item.name.toLowerCase().toLowerCase().includes(query) ||
+        item.description.toLowerCase().toLowerCase().includes(query) ||
+        item.category.name.toLowerCase().toLowerCase().includes(query)
+      );
+    });
+    setFilteredList(updatedList);
+    console.log(filteredList);
+  };
+
+  //autre possibilite de recherche mais avec typescript on est trop limité
+  //
+  // const keys:(keyof IProduct)[] = ["name", "description", "category"];
+  // const search = (products: IProduct[]) => {
+  //   return products.filter((item) =>
+  //     keys.some((key) => item[key].toLowerCase().includes(query))
+  //   );
+  // };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="products-page">
       <header>
         <ul className="products-filters">
-          <li><CategoryFilter/></li>
-          <li>            
-            <select className="custom-select">
-              <option selected>Genre</option>
-              <option value="">Homme</option>
-              <option value="">Femme</option>
-              <option value="">Enfant</option>
-            </select>
-          </li>
-          <li className="custom-select date-select">
-            <label>du : <span> </span> 
-              <input type="date" id="start"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>
-            <label>au : <span></span> 
-              <input type="date" id="end"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>           
-          </li>
           <li>
-            <select className="custom-select">
-              <option selected>Prix</option>
-              <option value=""> - de 15 €/jour</option>
-              <option value="">Entre 15 et 30 €/jour</option>
-              <option value="">Plus de 30 €/jour</option>
-            </select>
+            <input
+              type="text"
+              placeholder="recherche..."
+              className="search"
+              // onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              onChange={search}
+            />
           </li>
         </ul>
-        
       </header>
       <main>
         <section className="card-row">
-          {products?.map((product) => {
-            return (
-              <ProductCard product={product}/>
-            );
-          })}
+          {filteredList ? filteredList.map((item)=>(
+           <ProductCard item={item} />
+            )): 
+            <section className="card-row">
+            {products?.map((product) => {
+              return (
+                <ProductCard item={product}/>
+              );
+            })}
+          </section>
+
+          }
         </section>
       </main>
     </div>
