@@ -138,7 +138,7 @@ export function PurchaseProces() {
                     email: Main?.user?.email
                 }
 
-                emailjs.send("service_5z6axm1", "template_tvho8vi", template, "LDnIbXDyCKC_9Ihg3").then(
+                emailjs.send("service_5z6axm1", "template_b4rjqls", template, "LDnIbXDyCKC_9Ihg3").then(
                     (result) => {
                         console.log("L'email de confirmation est envoyé à :", template.email);
                         console.log(result.text);
