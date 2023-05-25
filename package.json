@@ -4,12 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.0",
-<<<<<<< HEAD
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-=======
     "@emailjs/browser": "^3.11.0",
->>>>>>> 1092533039d25d53a89ab3a864ee5cddfa262ecf
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.12.2",
     "@testing-library/jest-dom": "^5.16.5",
