@@ -8,12 +8,11 @@ import { getCategories } from "../../graphql/Category";
 
 export default function Products() {
   const { loading, data } = useQuery<{ products: IProduct[] }>(getProducts);
-  const { loading:categoriesLoading, data: categories } = useQuery<{ categories: ICategory[] }>(
-    getCategories
-  );
-  console.log(categories);
-
+  const { loading: categoriesLoading, data: categories } = useQuery<{
+    categories: ICategory[];
+  }>(getCategories);
   const [filteredList, setFilteredList] = useState<IProduct[]>();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedCategory, setSelectedCategory] = useState();
 
   const search = (event: any) => {
@@ -39,12 +38,16 @@ export default function Products() {
   // };
 
   function handleCategoryChange(event: any) {
-    setSelectedCategory(event.target.value);
-    if (!event.target.value) {
-      return products;
-    }
-    const filteredList = products?.filter((item) => item.category.name === event.target.value);
+    const selectedCategory = event.target.value;
+    setSelectedCategory(selectedCategory);
+    if (!selectedCategory) {
+       setFilteredList(products||[]);
+    } else {
+    const filteredList = products?.filter(
+      (item) => item.category.name === selectedCategory
+    );
     setFilteredList(filteredList);
+    }
   }
 
   if (loading) return <div>Loading...</div>;
@@ -58,6 +61,7 @@ export default function Products() {
       <header>
         <ul className="products-filters">
           <li>
+            <p>Recherche :</p>
             <input
               type="text"
               placeholder="recherche..."
@@ -66,18 +70,16 @@ export default function Products() {
             />
           </li>
           <li>
+            <p>Filtre par catégories :</p>
             <select
               name="category-list"
               id="category-list"
               onChange={handleCategoryChange}
             >
-              <option>choose option</option>
-              {category?.map(
-                (item) => (
-                  // console.log(item),
-                  (<option key={item.id}>{item.name}</option>)
-                )
-              )}
+              <option value="">Toutes categories</option>
+              {category?.map((item) => (
+                <option key={item.id}>{item.name}</option>
+              ))}
               ;
             </select>
           </li>
