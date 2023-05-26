@@ -11,7 +11,7 @@ export const getProducts = gql`
       image
       name
       price
-      ajouter réservations
+     # ajouter réservations
     }
   }
 `;

@@ -43,8 +43,7 @@ export default function Products() {
     if (!selectedCategory) {
        setFilteredList(products||[]);
     } else {
-    const filteredList = products?.filter(
-      (item) => item.category.name === selectedCategory
+    const filteredList = products?.filter((item: IProduct) => item.category.name === selectedCategory
     );
     setFilteredList(filteredList);
     }
@@ -77,7 +76,7 @@ export default function Products() {
               onChange={handleCategoryChange}
             >
               <option value="">Toutes categories</option>
-              {category?.map((item) => (
+              {category?.map((item: IProduct) => (
                 <option key={item.id}>{item.name}</option>
               ))}
               ;
@@ -93,7 +92,7 @@ export default function Products() {
             ))
           ) : (
             <section className="card-row">
-              {products?.map((product) => {
+              {products?.map((product: IProduct) => {
                 return <ProductCard key={product.id} item={product} />;
               })}
             </section>
