@@ -3,15 +3,15 @@ import {gql} from "@apollo/client";
 export const getProducts = gql`
   query Products {
     products {
-      # category {
-      #     name
-      # }
+      category {
+        name
+      }
       description
       disponibility
       image
       name
       price
-      # ajouter réservations
+     # ajouter réservations
     }
   }
 `;
@@ -19,9 +19,9 @@ export const getProducts = gql`
 export const getProduct = gql`
   query Product($productId: ID!) {
     product(id: $wilderId) {
-      # category {
-      #     name
-      # }
+      category {
+        name
+      }
       description
       disponibility
       image

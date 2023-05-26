@@ -1,64 +1,104 @@
-import { useQuery } from "@apollo/client";
-import { getProducts } from "../../graphql/productQueries";
-import { IProduct } from "../../interfaces";
+import {useQuery} from "@apollo/client";
+import {getProducts} from "../../graphql/productQueries";
+import {ICategory, IProduct} from "../../interfaces";
 import ProductCard from "./ProductCard";
 import "./Products.css";
-import CategoryFilter from "./CategoryFilter";
-
+import {useState} from "react";
+import {getCategories} from "../../graphql/Category";
 
 export default function Products() {
-  const { loading, data, refetch } = useQuery<{ products: IProduct[] }>(
-      getProducts
-    );
-  
-  if (loading) return (<div>Loading...</div>);
-  const products = data ? data.products : null;
+    const {loading, data} = useQuery<{ products: IProduct[] }>(getProducts);
+    const {loading: categoriesLoading, data: categories} = useQuery<{
+        categories: ICategory[];
+    }>(getCategories);
+    const [filteredList, setFilteredList] = useState<IProduct[]>();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [selectedCategory, setSelectedCategory] = useState();
 
-  return (
-    <div className="products-page">
-      <header>
-        <ul className="products-filters">
-          <li><CategoryFilter/></li>
-          <li>            
-            <select className="custom-select">
-              <option selected>Genre</option>
-              <option value="">Homme</option>
-              <option value="">Femme</option>
-              <option value="">Enfant</option>
-            </select>
-          </li>
-          <li className="custom-select date-select">
-            <label>du : <span> </span> 
-              <input type="date" id="start"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>
-            <label>au : <span></span> 
-              <input type="date" id="end"
-                    value="2023-02-03"
-                    min="2023-02-03" max="2024-02-03"/>
-            </label>           
-          </li>
-          <li>
-            <select className="custom-select">
-              <option selected>Prix</option>
-              <option value=""> - de 15 €/jour</option>
-              <option value="">Entre 15 et 30 €/jour</option>
-              <option value="">Plus de 30 €/jour</option>
-            </select>
-          </li>
-        </ul>
-        
-      </header>
-      <main>
-        <section className="card-row">
-          {products?.map((product) => {
+    const search = (event: any) => {
+        const query = event.target.value;
+        let updatedList = [...(products || [])];
+        updatedList = updatedList.filter((item) => {
             return (
-              <ProductCard product={product}/>
+                item.name.toLowerCase().toLowerCase().includes(query) ||
+                item.description.toLowerCase().toLowerCase().includes(query) ||
+                item.category.name.toLowerCase().toLowerCase().includes(query)
             );
-          })}
-        </section>
-      </main>
-    </div>
-  );
+        });
+        setFilteredList(updatedList);
+    };
+
+    //autre possibilite de recherche mais avec typescript on est trop limité
+    //
+    // const keys:(keyof IProduct)[] = ["name", "description", "category"];
+    // const search = (products: IProduct[]) => {
+    //   return products.filter((item) =>
+    //     keys.some((key) => item[key].toLowerCase().includes(query))
+    //   );
+    // };
+
+    function handleCategoryChange(event: any) {
+        const selectedCategory = event.target.value;
+        setSelectedCategory(selectedCategory);
+        if (!selectedCategory) {
+            setFilteredList(products || []);
+        } else {
+            const filteredList = products?.filter((item: IProduct) => item.category.name === selectedCategory
+            );
+            setFilteredList(filteredList);
+        }
+    }
+
+    if (loading) return <div>Loading...</div>;
+    if (categoriesLoading) return <div>Loading...</div>;
+
+    const products = data ? data.products : null;
+    const category = categories ? categories.categories : null;
+
+    return (
+        <div className="products-page">
+            <header>
+                <ul className="products-filters">
+                    <li>
+                        <p>Recherche :</p>
+                        <input
+                            type="text"
+                            placeholder="recherche..."
+                            className="search"
+                            onChange={search}
+                        />
+                    </li>
+                    <li>
+                        <p>Filtre par catégories :</p>
+                        <select
+                            name="category-list"
+                            id="category-list"
+                            onChange={handleCategoryChange}
+                        >
+                            <option value="">Toutes categories</option>
+                            {category?.map((item: ICategory) => (
+                                <option key={item.id}>{item.name}</option>
+                            ))}
+                            ;
+                        </select>
+                    </li>
+                </ul>
+            </header>
+            <main>
+                <section className="card-row">
+                    {filteredList ? (
+                        filteredList.map((item) => (
+                            <ProductCard key={item.id} item={item}/>
+                        ))
+                    ) : (
+                        <section className="card-row">
+                            {products?.map((product: IProduct) => {
+                                return <ProductCard key={product.id} item={product}/>;
+                            })}
+                        </section>
+                    )}
+                </section>
+            </main>
+        </div>
+    );
 }
