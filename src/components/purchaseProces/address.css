@@ -3,10 +3,11 @@
   margin: auto;
   display: flex;
   font-family: Itim;
+  justify-content: space-between;
 }
 .addressFormContainer {
   margin-bottom: 3rem;
-  width: 50vw;
+  width: 50%;
 }
 
 .addressContainer p {
@@ -17,7 +18,6 @@
 .addressFormTitle {
   font-size: 1.5rem !important;
   margin-top: 3rem;
-  margin-left: -5rem;
 }
 
 .addressForm {
@@ -51,4 +51,12 @@
 .addressFormFieldAddress {
   height: 5rem;
   resize: none;
+}
+
+.resumeContainer {
+  width: 30%;
+  max-height: 40rem;
+  margin-top: 3rem;
+  background-color: #e2e2e2;
+  text-align: center;
 }
