@@ -8,7 +8,6 @@ import {IAddressOrder, IPurchaseProces} from "../interfaces";
 import "./purchaseProces.css";
 import {Payment} from "../components/purchaseProces/Payment";
 import {Confirmation} from "../components/purchaseProces/Confirmation";
-import {Cart} from "../components/purchaseProces/Cart";
 import {useMutation} from "@apollo/client";
 import {
     createOrder,
@@ -67,6 +66,16 @@ export function PurchaseProces() {
                     : "",
         },
     });
+
+    const applyToPay = async () => {
+        await toPay();
+        setView({
+            cart: false,
+            address: false,
+            payment: false,
+            confirmation: true,
+        });
+    }
 
     const [doSaveReservations] = useMutation(verifyReservationsList);
     const verifyReservations = async () => {
@@ -236,7 +245,7 @@ export function PurchaseProces() {
                 {/* {view.cart && <Cart onValidateCart={() => verifyReservations()} />} */}
                 {view.cart && <Basket onValidateCart={() => verifyReservations()}/>}
                 {view.address && <Address address={address} setAddress={setAddress}/>}
-                {view.payment && <Payment/>}
+                {view.payment && <Payment onPay={() => applyToPay()}/>}
                 {view.confirmation && <Confirmation orderId={orderId}/>}
             </div>
             {!view.cart && !view.confirmation && (
@@ -288,7 +297,7 @@ export function PurchaseProces() {
                                 });
                             }
                         }}
-                        className="purchaseProcesButtonsNext"
+                        className={view.payment ? "noButtonPay" : "purchaseProcesButtonsNext"}
                     >
                         {view.payment ? "Payer ma commande" : "Continuer"}
                     </button>
