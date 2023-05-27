@@ -6,7 +6,7 @@ import { Notification } from "../Notification";
 import indexTexts from "../../assets/indexTexts.json";
 import eye from "../../assets/images/oeil.png";
 import { IConnection } from "../../interfaces";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Login({ onTokenChange }: IConnection): JSX.Element {
   const navigate = useNavigate();
@@ -39,6 +39,8 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
     } catch {}
   }
 
+  //const onLogin = () => navigate(-1);
+  
   return (
     <div className="loginContainer">
       {notificationError && (
@@ -58,7 +60,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
           textButton={indexTexts.loginNotificationTextButton}
           icon="succes"
           type="validation"
-          onValidate={() => navigate("/")}
+          onValidate={() => navigate(-1)}
         />
       )}
       <form onSubmit={doLogin} className="loginForm">

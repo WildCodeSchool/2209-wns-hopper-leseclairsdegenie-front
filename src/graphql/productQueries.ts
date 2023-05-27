@@ -10,7 +10,6 @@ export const getProducts = gql`
             # }
             id
             description
-            disponibility
             image
             name
             price
@@ -20,18 +19,20 @@ export const getProducts = gql`
 `
 
 export const getProduct = gql`
-    query Product($id: ID!) {
+    query Product($id: ID!, $startDate: DateTime!, $endDate: DateTime!) {
         product(Id: $id) {
             # category {
             #     name
             # }
             id
             description
-            disponibility
+            availability(startDate: $startDate, endDate: $endDate) {
+                date
+                quantity
+              }
             image
             name
             price
-            # ajouter réservations
         }
     }
 `
@@ -44,7 +45,6 @@ export const createProduct = gql`
                 name
             }
             description
-            disponibility
             image
             name
             price
@@ -52,7 +52,7 @@ export const createProduct = gql`
     }
 `
 
-export const updateWilder = gql`
+export const updateProduct = gql`
     mutation UpdateProduct($data: ProductInput!, $id: ID!) {
         updateProduct(data: $data, Id: $id) {
             category {
@@ -60,7 +60,6 @@ export const updateWilder = gql`
                 name
             }
             description
-            disponibility
             image
             name
             price
@@ -68,7 +67,7 @@ export const updateWilder = gql`
 }
 `
 
-export const deleteWilder = gql`
+export const deleteProduct = gql`
     mutation DeleteProduct($id: ID!) {
         deleteProduct(Id: $id) {
             name

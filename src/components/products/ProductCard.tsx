@@ -3,7 +3,13 @@ import { IProduct } from "../../interfaces";
 import "./Products.css";
 
 export interface IProductProps {
-  product: IProduct | null;
+  product: {
+    image: string;
+    price: number;
+    description: string;
+    id: number;
+    name: string;
+  }
 }
 
 const ProductCard = ({ product }: IProductProps) => {

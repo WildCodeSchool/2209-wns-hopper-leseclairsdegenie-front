@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import ProductCard from './ProductCard'
 
+
 test('loads and displays price\'s product', async () => {
   // ARRANGE
   render(<ProductCard product={{
     image: "",
     price: 42.25,
-    disponibility: true,
     description: "Chaussures de randonnée",
     id: 2,
     name: "Chaussures de randonnée"

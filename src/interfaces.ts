@@ -1,10 +1,19 @@
 export interface IProduct {
   image: string;
   price: number;
-  disponibility: boolean;
+  availability: [IAvailaiblesDates];
   description: string;
   id: number;
   name: string;
+}
+
+export interface ICartId {
+  id: number;
+}
+
+export interface IAvailaiblesDates {
+  date: Date;
+  quantity: number;
 }
 export interface IReservation {
   id: number;
