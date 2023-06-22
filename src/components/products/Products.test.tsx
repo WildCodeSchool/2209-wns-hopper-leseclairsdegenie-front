@@ -1,12 +1,11 @@
-import {render, screen} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom'
-import ProductCard from './ProductCard'
-
+import { render, screen } from "@testing-library/react";
+// import userEvent from '@testing-library/user-event'
+import "@testing-library/jest-dom";
+import ProductCard from "./ProductCard";
 
 test('loads and displays price\'s product', async () => {
   // ARRANGE
-  render(<ProductCard product={{
+  render(<ProductCard item={{
     image: "",
     price: 42.25,
     description: "Chaussures de randonnée",

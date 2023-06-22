@@ -5,12 +5,13 @@ import { ICategory } from "../../interfaces";
 
 
 const CategoryFilter = () => {
-    const { loading, data, refetch } = useQuery<{ categories: ICategory[] }>(
+    const { loading, data } = useQuery<{ categories: ICategory[] }>(
         getCategories
       );
     
     if (loading) return (<div>Loading...</div>);
     const categories = data ? data.categories : null;
+    
     return (
         <div>
             <select className="custom-select">

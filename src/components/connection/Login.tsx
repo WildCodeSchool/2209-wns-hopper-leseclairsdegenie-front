@@ -18,6 +18,9 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
 
   const [doLoginMutation, { loading, error }] = useMutation(signin);
 
+  // const state = useLocation().state;
+  // const cartId = state ? Number(state.cartId) : null;
+  const cartId = localStorage.getItem("cartId");
   async function doLogin(event: { preventDefault: () => void }) {
     event.preventDefault();
     try {
@@ -25,6 +28,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
         variables: {
           email,
           password,
+          cartId
         },
       });
       // data.signin = "uijbsdgbsdogjuvb";
@@ -38,8 +42,6 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
       }
     } catch {}
   }
-
-  //const onLogin = () => navigate(-1);
   
   return (
     <div className="loginContainer">

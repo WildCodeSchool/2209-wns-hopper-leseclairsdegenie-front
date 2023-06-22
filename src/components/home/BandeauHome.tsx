@@ -1,17 +1,10 @@
-import React from "react";
-import ski from "../../assets/images/ski.jpg";
-import plongee from "../../assets/images/plongee.jpg";
-import randonnee from "../../assets/images/randonnee.jpg";
-import escalade from "../../assets/images/escalade.jpg";
-import cyclisme from "../../assets/images/cyclisme.jpg";
-import musculation from "../../assets/images/musculation.jpg";
 import styles from "./BandeauHome.module.css";
 import bandeau from "../../assets/images/Component61.jpg";
 
 const BandeauHome = () => {
   return (
     <div className={styles.containerBandeau}>
-      <img src={bandeau} useMap="#image-map" />
+      <img src={bandeau} useMap="#image-map" alt="" />
       <map name="image-map">
         <area target="" alt="title" title="title" href="http://localhost:3000/products" coords="41,50,34" shape="circle" />
         <area target="" alt="" title="" href="http://localhost:3000/products" coords="435,392,31" shape="circle" />

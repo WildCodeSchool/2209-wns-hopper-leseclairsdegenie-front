@@ -1,21 +1,23 @@
 .addressContainer {
+  width: 80%;
+  margin: auto;
   display: flex;
   font-family: Itim;
+  justify-content: space-between;
 }
 .addressFormContainer {
   margin-bottom: 3rem;
-  width: 50vw;
+  width: 50%;
 }
 
 .addressContainer p {
-  color: #343A55;
+  color: #343a55;
   font-size: 0.9rem;
 }
 
 .addressFormTitle {
   font-size: 1.5rem !important;
   margin-top: 3rem;
-  margin-left: -5rem;
 }
 
 .addressForm {
@@ -44,9 +46,17 @@
 
 .addressFormField:focus,
 .addressFormFieldAddress:focus {
-  outline: 1px solid #343A55;
+  outline: 1px solid #343a55;
 }
 .addressFormFieldAddress {
   height: 5rem;
   resize: none;
+}
+
+.resumeContainer {
+  width: 30%;
+  max-height: 40rem;
+  margin-top: 3rem;
+  background-color: #e2e2e2;
+  text-align: center;
 }

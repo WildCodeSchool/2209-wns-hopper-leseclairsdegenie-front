@@ -2,7 +2,7 @@
   display: flex;
   font-family: Itim;
   margin-bottom: 3rem;
-  color: #343A55;
+  color: #343a55;
 }
 
 .paymentContainer p {
@@ -10,7 +10,8 @@
 }
 
 .paymentContainer1 {
-  width: 600px;
+  width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -28,7 +29,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 
 .paymentInfoTitle {
   font-size: 1.5rem !important;
@@ -74,15 +74,15 @@
   text-align: center;
   background-color: #e2e2e2;
   margin-bottom: 1em;
-  color: #343A55;
+  color: #343a55;
 }
 
 .paymentSelect:focus {
-  outline: 1px solid #343A55;
+  outline: 1px solid #343a55;
 }
 
 .paymentOption {
-  color: #343A55;
+  color: #343a55;
 }
 
 .paymentFormField {
@@ -90,15 +90,30 @@
   border: none;
   padding: 1rem;
   width: 70%;
-  color: #343A55;
+  color: #343a55;
   background-color: #e2e2e2;
 }
 
 .paymentFormField:focus {
-  outline: 1px solid #343A55;
+  outline: 1px solid #343a55;
 }
 
 .paymentFormFieldCode {
   width: 15%;
   text-align: center;
+}
+
+.paymentContainer1b {
+  width: 50%;
+  margin: auto;
+}
+
+.totalePanierPayement {
+  width: 50%;
+  margin: auto;
+}
+
+.totalePanierPayement > p {
+  text-align: right;
+  font-size: 25px;
 }

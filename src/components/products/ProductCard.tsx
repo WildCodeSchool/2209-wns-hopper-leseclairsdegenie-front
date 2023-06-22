@@ -1,36 +1,36 @@
 import { Link } from "react-router-dom";
-import { IProduct } from "../../interfaces";
 import "./Products.css";
 
 export interface IProductProps {
-  product: {
+  item: {
     image: string;
     price: number;
     description: string;
     id: number;
     name: string;
-  }
+  };
 }
 
-const ProductCard = ({ product }: IProductProps) => {
-  if (product !== null) {
+const ProductCard = ({ item }: IProductProps) => {
+
+  if (item !== null) {
     return (
-      <article key={product.id} className="card">
-        <img src={product.image} alt={product.description} />
+      <article key={item.id} className="card">
+        <img src={item.image} alt={item.description} />
         <div className="card-body">
-          <h3>{product.name}</h3>
-          <h4>{product.description}</h4>
-          <Link className="product-details-link" to={`/products/product-details/${product.id}`}>+ Détails</Link>
+          <h3>{item.name}</h3>
+          <h4>{item.description}</h4>
+          <Link className="product-details-link" to={`/products/details/${item.id}`}>+ Détails</Link>
         </div>
         <div className="card-foot">
-        <span data-testid="product-price"><p>{product.price}€ / jour</p></span>
-          <button  className="button" title="Réserver">Réserver</button>
+          <span data-testid="product-price"><p>{item.price}€ / jour</p></span>
+          <button className="button" title="Réserver">Réserver</button>
         </div>
       </article>
-    ); 
+    );
   } else {
     return null;
-  }     
+  }
 }
 
 

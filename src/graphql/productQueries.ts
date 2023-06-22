@@ -1,13 +1,11 @@
-
 import { gql } from "@apollo/client";
-
 
 export const getProducts = gql`
     query Products {
         products {
-            # category {
-            #     name
-            # }
+            category {
+                name
+            }
             id
             description
             image
@@ -21,9 +19,9 @@ export const getProducts = gql`
 export const getProduct = gql`
     query Product($id: ID!, $startDate: DateTime!, $endDate: DateTime!) {
         product(Id: $id) {
-            # category {
-            #     name
-            # }
+            category {
+                name
+            }
             id
             description
             availability(startDate: $startDate, endDate: $endDate) {
@@ -68,9 +66,27 @@ export const updateProduct = gql`
 `
 
 export const deleteProduct = gql`
-    mutation DeleteProduct($id: ID!) {
-        deleteProduct(Id: $id) {
-            name
-        }
-}
-`
+  mutation DeleteProduct($id: ID!) {
+    deleteProduct(Id: $id) {
+      name
+    }
+  }
+`;
+
+export const productsRandomList = gql`
+  query ProductsRandom {
+    productsRandom {
+      id
+      image
+      name
+      price
+      disponibility
+      description
+      quantity
+      category {
+        id
+        name
+      }
+    }
+  }
+`;

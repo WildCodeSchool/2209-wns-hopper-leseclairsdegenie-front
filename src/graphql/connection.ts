@@ -7,8 +7,8 @@ export const createUser = gql`
 `;
 
 export const signin = gql`
-  mutation Signin($password: String!, $email: String!) {
-    signin(password: $password, email: $email)
+  mutation Signin($password: String!, $email: String!, $cartId: Float!) {
+    signin(password: $password, email: $email, cartId: $cartId)
   }
 `;
 
@@ -63,6 +63,7 @@ export const me = gql`
         deliveryLastname
         deliveryAdress
         lastTimeModified
+        totalePrice
         reservations {
           id
           startDate
@@ -70,6 +71,7 @@ export const me = gql`
           quantity
           price
           taxes
+          nbJours
           product {
             id
             name

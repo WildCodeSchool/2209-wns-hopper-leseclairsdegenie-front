@@ -1,0 +1,18 @@
+.recapReservation {
+  width: 100%;
+  padding: 1rem 0 1rem 0;
+}
+
+.ImageTitle > h3 {
+  font-size: 1rem !important;
+  margin-top: 1rem;
+}
+
+.ImageTitle > img {
+  width: 10rem;
+  height: 8rem;
+}
+.trait {
+  border-top: 1px solid #4f6457;
+  width: 50%;
+}

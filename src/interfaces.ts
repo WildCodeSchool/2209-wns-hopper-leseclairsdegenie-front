@@ -1,3 +1,4 @@
+
 export interface IProduct {
   image: string;
   price: number;
@@ -5,10 +6,7 @@ export interface IProduct {
   description: string;
   id: number;
   name: string;
-}
-
-export interface ICartId {
-  id: number;
+  category: ICategory;
 }
 
 export interface IAvailaiblesDates {
@@ -16,16 +14,28 @@ export interface IAvailaiblesDates {
   quantity: number;
 }
 export interface IReservation {
-  id: number;
-  product: IProduct;
-  cart: ICart;
-  order?: IOrder;
-  startDate: Date;
-  endDate: Date;
-  quantity: number;
   price: number;
-  taxes: number;
+  nbJours: number;
+  cart: ICart;
+  product: IProduct;
+  quantity: number; 
+  startDate: Date;
+  endDate: Date;   
 }
+
+export interface IReservations {
+  endDate: Date;
+  id: string;
+  price: number;
+  taille: string | null;
+  duree: number;
+  quantity: number;
+  product: IProduct;
+  startDate: Date;
+  taxes: number | null;
+  image?: string;
+}
+
 export interface IOrder {
   id: number;
   user: IUser;
@@ -38,7 +48,7 @@ export interface IOrder {
   totalPrice: number;
   statusDelivery: string;
   date: Date;
-  reservations: IReservation[];
+  reservations: IReservations[];
   cart?: ICart;
 }
 
@@ -54,14 +64,15 @@ export interface ICategory {
 export interface ICart {
   id: number;
   user?: IUser;
-  billingfirstname: string;
-  billingLastname: string;
-  billingAdress: string;
-  deliveryfirstname: string;
-  deliveryLastname: string;
-  deliveryAdress: string;
+  billingfirstname?: string;
+  billingLastname?: string;
+  billingAdress?: string;
+  deliveryfirstname?: string;
+  deliveryLastname?: string;
+  deliveryAdress?: string;
   lastTimeModified?: Date;
-  reservations?: IReservation[];
+  reservations?: IReservations[];
+  totalePrice?: number | null;
 }
 
 export interface IUser {

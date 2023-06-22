@@ -1,6 +1,6 @@
-import gql from "graphql-tag";
+import { gql } from "@apollo/client";
 
-export const createReservation = gql`
+export const CREATE_RESERVATION = gql`
     mutation createReservation($data: ReservationInput!) {
         createReservation(data: $data) {
             cart {
@@ -15,3 +15,11 @@ export const createReservation = gql`
           }
     }
 `
+
+export const deleteReservation = gql`
+  mutation DeleteReservation($id: ID!) {
+    deleteReservation(Id: $id) {
+      id
+    }
+  }
+`;

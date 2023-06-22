@@ -11,6 +11,7 @@ export function Payment(): JSX.Element {
   }
   useEffect(() => {
     Main?.refetch();
+    console.log("user dans payment :", Main?.user);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -94,9 +95,11 @@ export function Payment(): JSX.Element {
             </div>
           </form>
         </div>
+        <div className="totalePanierPayement">
+          <hr />
+          <p>Totale : {Main?.user?.cart.totalePrice} €</p>
+        </div>
       </div>
-
-      <div className="paymentContainer2">details</div>
     </div>
   );
 }

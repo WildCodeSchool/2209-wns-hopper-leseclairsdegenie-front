@@ -12,7 +12,6 @@ import Products from "./components/products/Products";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Basket from "./pages/Basket";
 import { Connection } from "./pages/Connection ";
 import { MainProvider } from "./MainContexts";
 import { PurchaseProces } from "./pages/PurchaseProces";
@@ -26,25 +25,38 @@ function Main() {
           <Navbar />
           {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/categorie/:name" element={<Category />} /> */}
-          {/* <Route path="reservations" element={<Reservations />} />*/ }
-          {/* <Route path="cart" element={<Cart />} />  */}
-          <Route path="connection" element={<Connection />} />
-          <Route path="products" element={<Products />} />
-          <Route path="products/product-details/:productId" element={<ProductDetails />} />
-          <Route path="basket" element={<Basket />} />
-          <Route path="purchaseProces" element={<PurchaseProces />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/categorie/:name" element={<Category />} /> */}
+            {/* <Route path="reservations" element={<Reservations />} />*/}
+            {/* <Route path="cart" element={<Cart />} />  */}
+            <Route path="connection" element={<Connection />} />
+            <Route path="products" element={<Products />} />
+            <Route path="products/details/:productId" element={<ProductDetails />} />
+            <Route path="basket" element={<PurchaseProces />} />
+            <Route path="purchaseProces" element={<PurchaseProces />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </MainProvider>
   );
 }
+
+const createUrl = () => {
+  let URI;
+  if (window.location.href.includes("stagging.hopper4")) {
+    URI = "https://back.stagging.hopper4.wns.wilders.dev/";
+  } else if (window.location.href.includes("prod.hopper4")) {
+    URI = "https://back.prod.hopper4.wns.wilders.dev/";
+  } else {
+    URI = "http://localhost:5000";
+  }
+  return URI;
+};
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000",
+  uri: createUrl(),
 });
 
 const authLink = setContext((_, { headers }) => {
