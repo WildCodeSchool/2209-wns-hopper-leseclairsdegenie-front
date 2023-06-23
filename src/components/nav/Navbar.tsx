@@ -11,6 +11,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     Main?.refetch();
   };
+  console.log("test ici " + Main?.user?.id);
   return (
     <nav className="nav">
       <ul className="menu">

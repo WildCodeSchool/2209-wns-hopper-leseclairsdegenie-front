@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./resumeCommande.css";
-import { IResevations } from "../../interfaces";
+import { IReservations } from "../../interfaces";
 import ReservationCard from "./ReservationCard";
 
 const ResumeCommande = (props: {
-  data: IResevations[];
+  data: IReservations[];
   totale?: number | null;
 }) => {
-  const [resume, setResume] = useState(props.data);
+  const [resume] = useState(props.data);
   console.log("page adresse : ", resume);
   return (
     <div className="recapCommande">

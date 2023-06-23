@@ -1,10 +1,17 @@
-import { IProduct } from "../../interfaces";
+import { Link } from "react-router-dom";
 import "./Products.css";
 
 export interface IProductProps {
-  item: IProduct;
+  item: {
+    image: string;
+    price: number;
+    description: string;
+    id: number;
+    name: string;
+  };
 }
-const ProductCard = ({ item }: {item:IProduct}) => {
+
+const ProductCard = ({ item }: IProductProps) => {
 
   if (item !== null) {
     return (
@@ -13,17 +20,17 @@ const ProductCard = ({ item }: {item:IProduct}) => {
         <div className="card-body">
           <h3>{item.name}</h3>
           <h4>{item.description}</h4>
-          <a className="product-details" href={"product/details"}>+ Détails</a>
+          <Link className="product-details-link" to={`/products/details/${item.id}`}>+ Détails</Link>
         </div>
         <div className="card-foot">
-        <span data-testid="product-price"><p>{item.price}€ / jour</p></span>
-          <button  className="button" title="Réserver">Réserver</button>
+          <span data-testid="product-price"><p>{item.price}€ / jour</p></span>
+          <button className="button" title="Réserver">Réserver</button>
         </div>
       </article>
-    ); 
+    );
   } else {
     return null;
-  }     
+  }
 }
 
 

@@ -12,10 +12,10 @@ import Products from "./components/products/Products";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Basket from "./pages/Basket";
 import { Connection } from "./pages/Connection ";
 import { MainProvider } from "./MainContexts";
 import { PurchaseProces } from "./pages/PurchaseProces";
+import ProductDetails from "./components/products/ProductDetails";
 
 function Main() {
   return (
@@ -32,7 +32,7 @@ function Main() {
             {/* <Route path="cart" element={<Cart />} />  */}
             <Route path="connection" element={<Connection />} />
             <Route path="products" element={<Products />} />
-            <Route path="products/details" element={<Products />} />
+            <Route path="products/details/:productId" element={<ProductDetails />} />
             <Route path="basket" element={<PurchaseProces />} />
             <Route path="purchaseProces" element={<PurchaseProces />} />
           </Routes>

@@ -3,13 +3,12 @@ import BasketCard from "../components/purchaseProces/BasketCard";
 import "./basket.css";
 import payement from "../assets/images/payement.png";
 import { MainContext } from "../MainContexts";
-import { addPriceCart } from "../graphql/cart";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { productsRandomList } from "../graphql/productQueries";
-import { IProduct, IResevations } from "../interfaces";
+import { IProduct, IReservations } from "../interfaces";
 
 export interface IData {
-  data: IResevations;
+  data: IReservations;
 }
 
 const Basket = ({ onValidateCart }: { onValidateCart: Function }) => {

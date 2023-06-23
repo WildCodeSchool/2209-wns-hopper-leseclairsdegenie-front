@@ -86,7 +86,7 @@
     margin: 0 0 4px 0;
   }
 
-  .product-details {
+  .product-details-link {
     text-decoration: none;
     color: rgb(41, 46, 68);
     cursor: pointer;
@@ -108,4 +108,48 @@
     box-shadow: none;
     font-size: 1rem;
     cursor: pointer;
+  }
+
+  .product-details {
+    font-family: "Itim";
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5%;
+  }
+
+  .product-details > img {
+    width: 40%;
+  }
+
+  .description {
+    font-size: 2rem;
+  }
+
+  .date {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .details-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .add-to-cart {
+    background-color: rgba(52, 58, 85, 1);
+    color: #A2FDCA;
+    font-family: "Itim";
+    padding: 2%;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 20px;
+    align-self: flex-end;
+    width: max-content;
+    cursor: pointer;
+  }
+
+  .datepicker{
+    background-color: #A2FDCA;
+    width: max-content;
   }

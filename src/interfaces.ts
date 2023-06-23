@@ -2,14 +2,28 @@
 export interface IProduct {
   image: string;
   price: number;
-  quantity: number;
-  disponibility: boolean;
+  availability: [IAvailaiblesDates];
   description: string;
   id: number;
   name: string;
   category: ICategory;
 }
-export interface IResevations {
+
+export interface IAvailaiblesDates {
+  date: Date;
+  quantity: number;
+}
+export interface IReservation {
+  price: number;
+  nbJours: number;
+  cart: ICart;
+  product: IProduct;
+  quantity: number; 
+  startDate: Date;
+  endDate: Date;   
+}
+
+export interface IReservations {
   endDate: Date;
   id: string;
   price: number;
@@ -21,6 +35,7 @@ export interface IResevations {
   taxes: number | null;
   image?: string;
 }
+
 export interface IOrder {
   id: number;
   user: IUser;
@@ -33,7 +48,7 @@ export interface IOrder {
   totalPrice: number;
   statusDelivery: string;
   date: Date;
-  reservations: IResevations[];
+  reservations: IReservations[];
   cart?: ICart;
 }
 
@@ -49,15 +64,15 @@ export interface ICategory {
 export interface ICart {
   id: number;
   user?: IUser;
-  billingfirstname: string;
-  billingLastname: string;
-  billingAdress: string;
-  deliveryfirstname: string;
-  deliveryLastname: string;
-  deliveryAdress: string;
+  billingfirstname?: string;
+  billingLastname?: string;
+  billingAdress?: string;
+  deliveryfirstname?: string;
+  deliveryLastname?: string;
+  deliveryAdress?: string;
   lastTimeModified?: Date;
-  reservations?: IResevations[];
-  totalePrice: number | null;
+  reservations?: IReservations[];
+  totalePrice?: number | null;
 }
 
 export interface IUser {

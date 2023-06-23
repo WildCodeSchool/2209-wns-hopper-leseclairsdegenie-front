@@ -7,8 +7,8 @@ export const createUser = gql`
 `;
 
 export const signin = gql`
-  mutation Signin($password: String!, $email: String!) {
-    signin(password: $password, email: $email)
+  mutation Signin($password: String!, $email: String!, $cartId: Float!) {
+    signin(password: $password, email: $email, cartId: $cartId)
   }
 `;
 

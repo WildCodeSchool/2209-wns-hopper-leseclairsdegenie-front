@@ -1,8 +1,8 @@
 import React from "react";
 import "./ReservationCard.css";
-import { IResevations } from "../../interfaces";
+import { IReservations } from "../../interfaces";
 //import { format } from "date-fns";
-const ReservationCard = (props: { data: IResevations }) => {
+const ReservationCard = (props: { data: IReservations }) => {
   const reservation = props.data;
   const dateStart = new Date(reservation.startDate).toLocaleDateString();
   const dateEnd = new Date(reservation.endDate).toLocaleDateString();
