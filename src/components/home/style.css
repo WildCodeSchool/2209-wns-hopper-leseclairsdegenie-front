@@ -1,0 +1,86 @@
+.component {
+    height: 445px;
+    position: relative;
+    width: 1450px;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .component .overlap {
+    height: 438px;
+    left: -4px;
+    position: absolute;
+    top: 13px;
+    width: 481px;
+  }
+  
+  .component .hiking {
+    height: 438px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 272px;
+  }
+  
+  .component .diver {
+    height: 438px;
+    left: 199px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 282px;
+  }
+  
+  .component .overlap-group {
+    height: 430px;
+    left: 488px;
+    position: absolute;
+    top: 13px;
+    width: 473px;
+  }
+  
+  .component .ski {
+    height: 430px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 275px;
+  }
+  
+  .component .climbing {
+    height: 430px;
+    left: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 273px;
+  }
+  
+  .component .div {
+    height: 430px;
+    left: 975px;
+    position: absolute;
+    top: 13px;
+    width: 475px;
+  }
+  
+  .component .cyclists {
+    height: 430px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 275px;
+  }
+  
+  .component .musculation {
+    height: 430px;
+    left: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 275px;
+  }
+  

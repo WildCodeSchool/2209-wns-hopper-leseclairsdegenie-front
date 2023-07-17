@@ -44,6 +44,7 @@ export interface ICategoryProps {
 export interface ICategory {
   id: number;
   name: string;
+  image:string;
 }
 
 export interface ICart {
