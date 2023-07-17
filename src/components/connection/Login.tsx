@@ -6,7 +6,7 @@ import { Notification } from "../Notification";
 import indexTexts from "../../assets/indexTexts.json";
 import eye from "../../assets/images/oeil.png";
 import { IConnection } from "../../interfaces";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function Login({ onTokenChange }: IConnection): JSX.Element {
   const navigate = useNavigate();
@@ -18,6 +18,9 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
 
   const [doLoginMutation, { loading, error }] = useMutation(signin);
 
+  // const state = useLocation().state;
+  // const cartId = state ? Number(state.cartId) : null;
+  const cartId = localStorage.getItem("cartId");
   async function doLogin(event: { preventDefault: () => void }) {
     event.preventDefault();
     try {
@@ -25,6 +28,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
         variables: {
           email,
           password,
+          cartId
         },
       });
       // data.signin = "uijbsdgbsdogjuvb";
@@ -38,7 +42,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
       }
     } catch {}
   }
-
+  
   return (
     <div className="loginContainer">
       {notificationError && (
@@ -58,7 +62,7 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
           textButton={indexTexts.loginNotificationTextButton}
           icon="succes"
           type="validation"
-          onValidate={() => navigate("/")}
+          onValidate={() => navigate(-1)}
         />
       )}
       <form onSubmit={doLogin} className="loginForm">

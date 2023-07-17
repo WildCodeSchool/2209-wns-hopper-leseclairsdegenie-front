@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import ski from "../../assets/images/ski.jpg";
-import "./basketCard.css";
+import { useEffect, useContext } from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IData } from "../../pages/Basket";
 import { useMutation } from "@apollo/client";
