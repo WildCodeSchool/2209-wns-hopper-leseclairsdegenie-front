@@ -1,12 +1,12 @@
 import React from "react";
 import BandeauHome from "../components/home/BandeauHome";
-import CategoryHome from "../components/home/CategoryHome";
+import CategoriesCard from "../components/home/CategoriesCard";
 
 const Home = () => {
   return (
     <div>
-      <BandeauHome />
-      <CategoryHome />
+      <BandeauHome style={undefined} />
+      <CategoriesCard />
     </div>
   );
 };

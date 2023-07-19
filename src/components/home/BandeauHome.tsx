@@ -1,19 +1,36 @@
-import styles from "./BandeauHome.module.css";
-import bandeau from "../../assets/images/Component61.jpg";
+import React from "react";
+import "./style.css";
+import ski from "../../assets/images/ski.png";
+import hiking from "../../assets/images/hiking.png";
+import diver from "../../assets/images/diver.png";
+import climbing from "../../assets/images/climbing.png";
+import cyclists from "../../assets/images/cyclists.png";
+import musculation from "../../assets/images/musculation.png";
 
-const BandeauHome = () => {
+interface Props {
+  style: any;
+}
+
+const BandeauHome = ({ style }: Props): JSX.Element => {
   return (
-    <div className={styles.containerBandeau}>
-      <img src={bandeau} useMap="#image-map" alt="" />
-      <map name="image-map">
-        <area target="" alt="title" title="title" href="http://localhost:3000/products" coords="41,50,34" shape="circle" />
-        <area target="" alt="" title="" href="http://localhost:3000/products" coords="435,392,31" shape="circle" />
-        <area target="" alt="" title="" href="http://localhost:3000/products" coords="525,46,28" shape="circle" />
-        <area target="" alt="" title="" href="http://localhost:3000/products" coords="916,394,34" shape="circle" />
-        <area target="" alt="" title="" href="http://localhost:3000/products" coords="1010,46,32" shape="circle" />
-        <area target="" alt="" title="" href="http://localhost:3000/products" coords="1411,391,33" shape="circle" />
-      </map>
-      <p>Louer votre matériel de sport, c'est aussi ça l'esprit d'équipe.</p>
+    <div>
+      <div className="container">
+      <div className="component" >
+        <div className="overlap">
+          <img className="hiking" alt="Hiking" src={hiking} />
+          <img className="diver" alt="Diver" src={diver} />
+        </div>
+        <div className="overlap-group">
+          <img className="ski" alt="Ski" src={ski} />
+          <img className="climbing" alt="Climbing" src={climbing} />
+        </div>
+        <div className="div">
+          <img className="cyclists" alt="Cyclists" src={cyclists} />
+          <img className="musculation" alt="Musculation" src={musculation} />
+        </div>
+      </div>
+      <p className="title">Louer votre matériel de sport, c'est aussi ça l'esprit d'équipe.</p>
+      </div>
     </div>
   );
 };

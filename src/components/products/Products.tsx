@@ -44,7 +44,7 @@ export default function Products() {
     if (!selectedCategory) {
        setFilteredList(products||[]);
     } else {
-    const filteredList = products?.filter((item: IProduct) => item.category.name === selectedCategory
+    const filteredList = products?.filter((item) => item.category.name === selectedCategory
     );
     setFilteredList(filteredList);
     }
