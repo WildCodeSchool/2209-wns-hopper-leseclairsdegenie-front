@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IData } from "../../pages/Basket";
 import { useMutation } from "@apollo/client";
-import { deleteReservation } from "../../graphql/reservations";
+import { deleteReservation } from "../../graphql/reservation";
 import { MainContext } from "../../MainContexts";
 import { me } from "../../graphql/connection";
 
