@@ -8,7 +8,6 @@ import {IAddressOrder, IPurchaseProces} from "../interfaces";
 import "./purchaseProces.css";
 import {Payment} from "../components/purchaseProces/Payment";
 import {Confirmation} from "../components/purchaseProces/Confirmation";
-import {Cart} from "../components/purchaseProces/Cart";
 import {useMutation} from "@apollo/client";
 import {
     createOrder,

@@ -6,6 +6,7 @@ import "./Products.css";
 import { useState } from "react";
 import { getCategories } from "../../graphql/Category";
 
+
 export default function Products() {
   const { loading, data } = useQuery<{ products: IProduct[] }>(getProducts);
   const { loading: categoriesLoading, data: categories } = useQuery<{
@@ -76,7 +77,7 @@ export default function Products() {
               onChange={handleCategoryChange}
             >
               <option value="">Toutes categories</option>
-              {category?.map((item) => (
+              {category?.map((item: ICategory) => (
                 <option key={item.id}>{item.name}</option>
               ))}
               ;
