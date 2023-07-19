@@ -1,12 +1,17 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .component {
     height: 445px;
     position: relative;
     width: 1450px;
-    margin-bottom: 4rem;
-    display: flex;
-    justify-content: space-evenly;
+    margin-bottom: 2rem;
+    align-self: center
   }
-  
+
   .component .overlap {
     height: 438px;
     left: -4px;
@@ -84,3 +89,11 @@
     width: 275px;
   }
   
+  .title {
+    font-weight: bolder;
+    align-self: center;
+    margin-bottom: 4rem;
+    font-size: xx-large;
+    color:#aef3da;
+    background-color: #343a55;
+  }

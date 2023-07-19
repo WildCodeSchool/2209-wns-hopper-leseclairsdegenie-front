@@ -14,7 +14,8 @@ interface Props {
 const BandeauHome = ({ style }: Props): JSX.Element => {
   return (
     <div>
-      <div className="component" style={style}>
+      <div className="container">
+      <div className="component" >
         <div className="overlap">
           <img className="hiking" alt="Hiking" src={hiking} />
           <img className="diver" alt="Diver" src={diver} />
@@ -28,7 +29,8 @@ const BandeauHome = ({ style }: Props): JSX.Element => {
           <img className="musculation" alt="Musculation" src={musculation} />
         </div>
       </div>
-      <p>Louer votre matériel de sport, c'est aussi ça l'esprit d'équipe.</p>
+      <p className="title">Louer votre matériel de sport, c'est aussi ça l'esprit d'équipe.</p>
+      </div>
     </div>
   );
 };
