@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { deleteReservation } from "../../graphql/reservation";
 import { MainContext } from "../../MainContexts";
 import { me } from "../../graphql/connection";
+import "./basketCard.css"
 
 export interface IDataProps {
   data: IData[] | null;
@@ -25,7 +26,6 @@ const BasketCard = (props: any) => {
       },
     });
   };
-  console.log(props);
   // const incrementQuantity = () => {
   //   setQuantity(quantity + 1);
   // };
@@ -35,6 +35,7 @@ const BasketCard = (props: any) => {
   //   }
   // };
 
+  
   const addTotalePanier = () => {
     if (props.data.forDisponibility) {
       if (!props.data.product.disponibility) {
@@ -49,7 +50,7 @@ const BasketCard = (props: any) => {
 
   return (
     <div className={props.data.product ? "BasketCard" : "BasketCardPub"}>
-      {props.data.product ? (
+      {/* {props.data.product ? ( */}
         <div>
           <div className="nameProduct">
             <p>{props.data.product.name}</p>
@@ -114,15 +115,15 @@ const BasketCard = (props: any) => {
             </div>
           </div>
 
-          <div className="warning">
+          {/* <div className="warning">
             {!props.data.product.disponibility && (
               <p className="red">
                 Ce produit n'est plus disponible pour le moment.
               </p>
             )}
-          </div>
+          </div> */}
         </div>
-      ) : (
+      {/*) : (
         <div className="productPub">
           <div className="nameProduct">
             <p>{props.data.name}</p>
@@ -134,7 +135,7 @@ const BasketCard = (props: any) => {
           </div>
           <a href="http://localhost:3000/products">Découvrir</a>
         </div>
-      )}
+      )*/}
     </div>
   );
 };

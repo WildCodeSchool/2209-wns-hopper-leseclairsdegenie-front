@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useContext, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {Address} from "../components/purchaseProces/Address";
-import {MainContext} from "../MainContexts";
-import {Notification} from "../components/Notification";
-import {IAddressOrder, IPurchaseProces} from "../interfaces";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Address } from "../components/purchaseProces/Address";
+import { MainContext } from "../MainContexts";
+import { Notification } from "../components/Notification";
+import { IAddressOrder, IPurchaseProces } from "../interfaces";
 import "./purchaseProces.css";
-import {Payment} from "../components/purchaseProces/Payment";
-import {Confirmation} from "../components/purchaseProces/Confirmation";
-import {useMutation} from "@apollo/client";
+import { Payment } from "../components/purchaseProces/Payment";
+import { Confirmation } from "../components/purchaseProces/Confirmation";
+import { useMutation } from "@apollo/client";
 import {
     createOrder,
     updateCart,
@@ -32,35 +32,35 @@ export function PurchaseProces() {
     // un useeffect si view.cart o view.payment true, update cart avec les infos de address
     const [address, setAddress] = useState<IAddressOrder>({
         delivery: {
-            lastname: Main?.user?.cart.deliveryLastname
-                ? Main?.user?.cart.deliveryLastname
+            lastname: Main?.user?.cart?.deliveryLastname
+                ? Main?.user?.cart?.deliveryLastname
                 : Main?.user?.lastname
                     ? Main?.user?.lastname
                     : "",
-            firstname: Main?.user?.cart.deliveryfirstname
-                ? Main?.user?.cart.deliveryfirstname
+            firstname: Main?.user?.cart?.deliveryfirstname
+                ? Main?.user?.cart?.deliveryfirstname
                 : Main?.user?.firstname
                     ? Main?.user?.firstname
                     : "",
-            address: Main?.user?.cart.deliveryAdress
-                ? Main?.user?.cart.deliveryAdress
+            address: Main?.user?.cart?.deliveryAdress
+                ? Main?.user?.cart?.deliveryAdress
                 : Main?.user?.deliveryAdress
                     ? Main?.user?.deliveryAdress
                     : "",
         },
         billing: {
-            lastname: Main?.user?.cart.billingLastname
-                ? Main?.user?.cart.billingLastname
+            lastname: Main?.user?.cart?.billingLastname
+                ? Main?.user?.cart?.billingLastname
                 : Main?.user?.lastname
                     ? Main?.user?.lastname
                     : "",
-            firstname: Main?.user?.cart.billingfirstname
-                ? Main?.user?.cart.billingfirstname
+            firstname: Main?.user?.cart?.billingfirstname
+                ? Main?.user?.cart?.billingfirstname
                 : Main?.user?.firstname
                     ? Main?.user?.firstname
                     : "",
-            address: Main?.user?.cart.billingAdress
-                ? Main?.user?.cart.billingAdress
+            address: Main?.user?.cart?.billingAdress
+                ? Main?.user?.cart?.billingAdress
                 : Main?.user?.deliveryAdress
                     ? Main?.user?.deliveryAdress
                     : "",
@@ -71,9 +71,10 @@ export function PurchaseProces() {
     const verifyReservations = async () => {
         await Main?.refetch();
         try {
-            const {data} = await doSaveReservations({
+            const { data } = await doSaveReservations({
                 variables: {
-                    id: Main?.user?.cart.id,
+                    id: localStorage.getItem("cartId")
+                    //id: Main?.user?.cart.id,
                 },
             });
             if (data.verifyReservationsList) {
@@ -99,7 +100,7 @@ export function PurchaseProces() {
     const saveAddress = async () => {
         await Main?.refetch();
         try {
-            const {data} = await doUpdateCart({
+            const { data } = await doUpdateCart({
                 variables: {
                     data: {
                         billingfirstname: address.billing?.firstname,
@@ -126,7 +127,7 @@ export function PurchaseProces() {
     const [doCreateOrder] = useMutation(createOrder);
     const toPay = async () => {
         try {
-            const {data} = await doCreateOrder();
+            const { data } = await doCreateOrder();
             if (data) {
                 console.log("Je paie");
                 console.log(data);
@@ -233,13 +234,13 @@ export function PurchaseProces() {
             </div>
             <div className="purchaseProcesContainContainer">
                 {/* {view.cart && <Cart onValidateCart={() => verifyReservations()} />} */}
-                {view.cart && <Basket onValidateCart={() => verifyReservations()}/>}
-                {view.address && <Address address={address} setAddress={setAddress}/>}
-                {view.payment && <Payment/>}
-                {view.confirmation && <Confirmation orderId={orderId}/>}
+                {view.cart && <Basket onValidateCart={() => verifyReservations()} />}
+                {view.address && <Address address={address} setAddress={setAddress} />}
+                {view.payment && <Payment />}
+                {view.confirmation && <Confirmation orderId={orderId} />}
             </div>
-            {!view.cart && !view.confirmation && (
-                <div className="purchaseProcesButtonsContainer">
+            <div className="purchaseProcesButtonsContainer">
+                {!view.cart && (
                     <button
                         onClick={async () => {
                             if (view.address) {
@@ -265,10 +266,22 @@ export function PurchaseProces() {
                     >
                         Précédent
                     </button>
+                )}
+                {!view.confirmation && (
                     <button
                         onClick={async () => {
-                            if (view.address) {
+                            if (view.cart) {
                                 await saveAddress();
+                                await Main?.refetch();
+                                setView({
+                                    cart: false,
+                                    address: true,
+                                    payment: false,
+                                    confirmation: false,
+                                });
+                            }
+                            if (view.address) {
+                                //await saveAddress();
                                 await Main?.refetch();
                                 setView({
                                     cart: false,
@@ -291,8 +304,8 @@ export function PurchaseProces() {
                     >
                         {view.payment ? "Payer ma commande" : "Continuer"}
                     </button>
-                </div>
-            )}
+                )}
+            </div>
             {view.confirmation && (
                 <div className="purchaseProcesButtonsContainer2">
                     <button
