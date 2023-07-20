@@ -48,6 +48,8 @@ export default function ProductDetails() {
   console.log(data?.product?.availability);
   computeAvailability();
 
+  const cartId = localStorage.getItem("cartId");
+
   async function doCreateReservation(event: {
     preventDefault: () => void
   }) {
@@ -60,7 +62,8 @@ export default function ProductDetails() {
             startDate: dateRange[0],
             endDate: dateRange[1],
             productId: productId,
-            quantity: quantity
+            quantity: quantity,
+            cartId: cartId
           }
         }
       });
