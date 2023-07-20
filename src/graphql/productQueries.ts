@@ -17,17 +17,17 @@ export const getProducts = gql`
 `
 
 export const getProduct = gql`
-    query Product($id: ID!, $startDate: DateTime!, $endDate: DateTime!) {
+    query Product($id: ID!, $month: Float!) {
         product(Id: $id) {
             category {
-                name
+              name
             }
             id
             description
-            availability(startDate: $startDate, endDate: $endDate) {
-                date
-                quantity
-              }
+            availability(month: $month) {
+              date
+              quantity
+            }
             image
             name
             price

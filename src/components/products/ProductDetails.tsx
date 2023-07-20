@@ -5,8 +5,9 @@ import { getProduct } from "../../graphql/productQueries";
 import { IProduct } from "../../interfaces";
 import { MainContext } from "../../MainContexts";
 import { CREATE_RESERVATION } from "../../graphql/reservation";
-import Calendar from "react-calendar";
+import Calendar, { MonthView } from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
+import { Notification } from "../Notification";
 
 export default function ProductDetails() {
 
@@ -16,34 +17,35 @@ export default function ProductDetails() {
   const { productId } = useParams();
   // dateRange
   const [dateRange, setDateRange] = useState<[Date, Date]>([new Date(), new Date()]);
-  const startDate = dateRange[0];
-  const endDate = dateRange[1];
-  const duration = (new Date(endDate).getTime() - new Date(startDate).getTime()) / (1000 * 60 * 60 * 24);
+  const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth());
+  const duration = (new Date(dateRange[1]).getTime() - new Date(dateRange[0]).getTime()) / (1000 * 60 * 60 * 24);
   // quantité
   const [quantity, setQuantity] = useState<number>();
 
   // query product
   const { loading, data } = useQuery<{ product: IProduct }>(
-    getProduct, { variables: { "id": `${productId}`, "startDate": startDate, "endDate": endDate } }
+    getProduct, { variables: { "id": `${productId}`, "month": currentMonth } }
   );
   // on récupère le produit 
   const product = data ? data.product : null;
+  console.log("produit", productId);
+  console.log("mois", currentMonth);
   // mutation reservation
   // const [DoCreateReservation, { data: createdReservation }] = useMutation<{ reservation: IReservation }>(createReservation);
-  const [CreateReservation, { data: createdReservationData }]
-    = useMutation(CREATE_RESERVATION);
+  const [createReservation, { data: createdReservationData }] = useMutation(CREATE_RESERVATION);
 
   // recherche des dates où quantité dispo nulle => à désactiver dans le calendrier
   const datesToExclude: Date[] = [];
   const computeAvailability = () => {
     if (data?.product?.availability) {
       for (const aDate of data?.product?.availability) {
-        if (aDate.quantity === 0) {
+        if (aDate.quantity <= 0) {
           datesToExclude.push(new Date(aDate.date));
         }
       }
     }
   };
+  console.log(data?.product?.availability);
   computeAvailability();
 
   async function doCreateReservation(event: {
@@ -51,12 +53,12 @@ export default function ProductDetails() {
   }) {
     event.preventDefault();
     try {
-      await CreateReservation({
+      await createReservation({
         variables: {
           data:
           {
-            startDate: startDate,
-            endDate: endDate,
+            startDate: dateRange[0],
+            endDate: dateRange[1],
             productId: productId,
             quantity: quantity
           }
@@ -66,13 +68,10 @@ export default function ProductDetails() {
       console.log("errorr rr r");
     }
   }
-  // console.log(createdReservation?.reservation.cart.id);
 
-  const reservation = createdReservationData ? createdReservationData.createReservation : null;
+  const reservation = createdReservationData ? createdReservationData.item : null;
   if (reservation?.cart.id) {
     localStorage.setItem("cartId", reservation?.cart.id);
-    // const redirectReservation = Main?.user?.id ? "/" : "../../../connection";
-    // navigate(redirectReservation, { state: { cartId: reservation?.cart.id } });
   };
 
   if (loading) return (<div>Loading...</div>);
@@ -110,11 +109,18 @@ export default function ProductDetails() {
                   )}
                 value={dateRange}
                 selectRange
+                onActiveStartDateChange={({ activeStartDate }) => {
+                  if (activeStartDate) {
+                    setCurrentMonth(activeStartDate.getMonth());
+                  }
+                }
+                }
+              //activeStartDate={new Date(new Date().getFullYear(), currentMonth, 1)}
               />
             </label>
           </div>
         </div>
-        {startDate && endDate && quantity && productId && (
+        {dateRange[0] && dateRange[1] && quantity && productId && (
           <div>
             <h3>Résumé de la réservation</h3>
             <p>Produit : {product?.name}</p>
@@ -122,14 +128,16 @@ export default function ProductDetails() {
             <p>Durée de la location : {Math.ceil(duration)} jours</p>
             <button className="add-to-cart" onClick={doCreateReservation}>
               Ajouter au panier</button>
-            {/* {Main?.user?.id ? (
-              <button className="add-to-cart" onClick={doCreateReservation}>Ajouter au panier</button>
+            {reservation?.cart.id ? (
+              <Notification
+                type="validation"
+                icon="succes"
+                message="Votre réservation a bien été ajoutée à votre panier"
+                textButton="Ok" onValidate={() => navigate("/")}></Notification>
             ) : (
-              <div>
-                <p>Vous devez être identifé pour confirmer la réservation</p>
-                <Link to="../../../connection">Se connecter</Link>
-              </div>
-            )} */}
+              <p></p>
+            )
+            }
           </div>
         )}
       </div>

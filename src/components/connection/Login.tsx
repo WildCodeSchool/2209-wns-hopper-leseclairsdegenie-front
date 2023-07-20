@@ -26,9 +26,12 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
     try {
       const { data } = await doLoginMutation({
         variables: {
-          email,
-          password,
-          cartId
+          data:
+          {
+            email: email,
+            password: password,
+            cartId: cartId
+          }
         },
       });
       // data.signin = "uijbsdgbsdogjuvb";
@@ -40,9 +43,9 @@ export function Login({ onTokenChange }: IConnection): JSX.Element {
         setPassword("");
         setNotificationError(true);
       }
-    } catch {}
+    } catch { }
   }
-  
+
   return (
     <div className="loginContainer">
       {notificationError && (
